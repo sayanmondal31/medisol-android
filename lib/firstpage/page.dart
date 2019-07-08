@@ -6,6 +6,19 @@ class MediPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: SafeArea(
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: 20,),
+              Container(
+                child: Text('how to use'),
+                
+              )
+            ],
+          )
+        ),
+      ),
       appBar: AppBar(
         title: Center(
           child: Text('MediSol'),
