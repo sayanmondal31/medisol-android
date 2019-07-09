@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:medisol/first_aid/first_aid_page/firstaid_components.dart';
+import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
+
 
 class FirstaidPage extends StatelessWidget {
   final List<String> entries = <String>['A', 'B', 'C'];

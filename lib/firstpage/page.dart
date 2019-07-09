@@ -7,6 +7,7 @@ class MediPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
+        
         child: SafeArea(
             child: Column(
           children: <Widget>[
@@ -20,6 +21,8 @@ class MediPage extends StatelessWidget {
         )),
       ),
       appBar: AppBar(
+        backgroundColor: Colors.cyan[900],
+        
         title: Center(
           child: Text('MediSol'),
         ),
@@ -47,6 +50,9 @@ class MediPage extends StatelessWidget {
                   IconCards(
                     cardtext: 'Symtoms',
                     cardicon: FontAwesomeIcons.solidHeart,
+                    press: (){
+                      Navigator.pushNamed(context, '/symtom');
+                    },
                   ),
                 ],
               ),
