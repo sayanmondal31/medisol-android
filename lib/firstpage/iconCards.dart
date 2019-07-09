@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medisol/firstpage/card_content.dart';
+
 import 'package:medisol/firstpage/reusable_card.dart';
 
 class IconCards extends StatelessWidget {
@@ -13,9 +13,8 @@ class IconCards extends StatelessWidget {
     return Expanded(
       child: ReusableCard(
           onPressed: press,
-          cardChild: CardContent(
-            icontextcad: Column(
-              
+          cardChild: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Icon(
                   cardicon,
@@ -28,8 +27,8 @@ class IconCards extends StatelessWidget {
                 )
               ],
             ),
-          ),
           colour: Colors.blue),
     );
   }
 }
+
