@@ -27,7 +27,7 @@ class IconCards extends StatelessWidget {
                 )
               ],
             ),
-          colour: Colors.blue),
+          colour: Colors.blue[100]),
     );
   }
 }

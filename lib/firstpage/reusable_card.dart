@@ -13,16 +13,25 @@ class ReusableCard extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: ClipOval(
-        child: Container(
-          child: cardChild,
-          decoration: BoxDecoration(
-            color: colour,
-            borderRadius: BorderRadius.circular(
-              10.0,
+        child: Card(
+          elevation: 5.0,
+          color: Colors.blueGrey[200],
+                  child: Container(
+                    
+            child: cardChild,
+            decoration: BoxDecoration(
+          //     image: DecorationImage(
+          //   image: AssetImage('images/waterdrop.jpg'),
+          //   fit: BoxFit.cover
+          // ),
+              color: colour,
+              borderRadius: BorderRadius.circular(
+                10.0,
+              ),
             ),
+            margin: EdgeInsets.all(10.0),
+            
           ),
-          margin: EdgeInsets.all(10.0),
-          
         ),
       ),
     );
