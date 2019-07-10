@@ -4,6 +4,7 @@ import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
 
 
 class FirstaidPage extends StatelessWidget {
+  static const String id = 'firstaidpage';
   final List<String> entries = <String>['A', 'B', 'C'];
   @override
   Widget build(BuildContext context) {

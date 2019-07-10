@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
 
 class SymptomsPage extends StatelessWidget {
+  static const String id = 'symptoms';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -20,18 +20,18 @@ class MediSol extends StatelessWidget {
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       home: MediPage(),
-      
+      initialRoute: MediPage.id,
       routes: {
-        '/homepage':(context)=>MediPage(),
-        '/firstaid':(context)=>FirstaidPage(),
-        '/firstaidburn':(context)=>BurnPage(),
-        '/firstaidcuts':(context)=>CutsPage(),
-        '/firstaidstroke':(context)=>StrokePage(),
-        '/firstaidtear':(context)=>TearOff(),
-        '/symtom':(context)=>SymptomsPage(),
-        '/symptomeyes':(context)=>EyesPage(),
-        '/symptomfever':(context)=>FeverPage(),
-        '/symptomstomach':(context)=>StomachPage()
+        MediPage.id:(context)=>MediPage(),
+        FirstaidPage.id:(context)=>FirstaidPage(),
+        BurnPage.id:(context)=>BurnPage(),
+        CutsPage.id:(context)=>CutsPage(),
+        StrokePage.id:(context)=>StrokePage(),
+        TearOff.id:(context)=>TearOff(),
+        SymptomsPage.id:(context)=>SymptomsPage(),
+        EyesPage.id:(context)=>EyesPage(),
+        FeverPage.id:(context)=>FeverPage(),
+        StomachPage.id:(context)=>StomachPage()
       },
     );
   }

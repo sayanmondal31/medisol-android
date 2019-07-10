@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medisol/first_aid/first_aid_page/firstAid_page.dart';
 import 'package:medisol/firstpage/iconCards.dart';
+import 'package:medisol/symptoms/symptom_page/symptom_page.dart';
 
 class MediPage extends StatelessWidget {
+  static const String id = 'medihomepage';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,14 +47,14 @@ class MediPage extends StatelessWidget {
                     cardtext: 'First aid',
                     cardicon: FontAwesomeIcons.firstAid,
                     press: () {
-                      Navigator.pushNamed(context, '/firstaid');
+                      Navigator.pushNamed(context, FirstaidPage.id);
                     },
                   ),
                   IconCards(
                     cardtext: 'Symtoms',
                     cardicon: FontAwesomeIcons.solidHeart,
                     press: (){
-                      Navigator.pushNamed(context, '/symtom');
+                      Navigator.pushNamed(context, SymptomsPage.id);
                     },
                   ),
                 ],
