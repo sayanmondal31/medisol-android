@@ -5,6 +5,9 @@ import 'package:medisol/first_aid/first_aid_page/firstAid_page.dart';
 import 'package:medisol/first_aid/stroke.dart';
 import 'package:medisol/first_aid/tear_off.dart';
 import 'package:medisol/firstpage/page.dart';
+import 'package:medisol/login/login_page.dart';
+import 'package:medisol/login/register_page.dart';
+import 'package:medisol/login/welcome.dart';
 import 'package:medisol/symptoms/eyes.dart';
 import 'package:medisol/symptoms/fever.dart';
 import 'package:medisol/symptoms/stomach_problem.dart';
@@ -18,9 +21,9 @@ class MediSol extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.light(),
-      debugShowCheckedModeBanner: false,
-      home: MediPage(),
-      initialRoute: MediPage.id,
+      // debugShowCheckedModeBanner: false,
+      home: WelcomeScreen(),
+      initialRoute: WelcomeScreen.id,
       routes: {
         MediPage.id:(context)=>MediPage(),
         FirstaidPage.id:(context)=>FirstaidPage(),
@@ -31,7 +34,10 @@ class MediSol extends StatelessWidget {
         SymptomsPage.id:(context)=>SymptomsPage(),
         EyesPage.id:(context)=>EyesPage(),
         FeverPage.id:(context)=>FeverPage(),
-        StomachPage.id:(context)=>StomachPage()
+        StomachPage.id:(context)=>StomachPage(),
+        Loginpage.id:(context)=>Loginpage(),
+        WelcomeScreen.id:(context)=>WelcomeScreen(),
+        RegisterPage.id:(context)=>RegisterPage(),
       },
     );
   }
