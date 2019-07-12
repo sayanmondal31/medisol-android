@@ -31,12 +31,7 @@ class MediPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/waterdrop.jpg'),
-            fit: BoxFit.cover
-          ),
-        ),
+        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[

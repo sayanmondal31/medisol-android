@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medisol/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:medisol/firstpage/page.dart';
 
 class Loginpage extends StatefulWidget {
   static const String id = 'loginpage';
@@ -8,6 +10,10 @@ class Loginpage extends StatefulWidget {
 
 class _LoginpageState extends State<Loginpage>
     with SingleTickerProviderStateMixin {
+  final _auth = FirebaseAuth.instance;
+  String email;
+  String password;
+
   AnimationController _iconanimationController;
   Animation<double> _iconanimation;
 
@@ -61,6 +67,9 @@ class _LoginpageState extends State<Loginpage>
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         new TextFormField(
+                          onChanged: (value) {
+                            email = value;
+                          },
                           decoration: kDecorationbox.copyWith(
                             hintText: 'enter email',
                             hintStyle: TextStyle(color: Colors.greenAccent),
@@ -70,6 +79,9 @@ class _LoginpageState extends State<Loginpage>
                           height: 30,
                         ),
                         new TextFormField(
+                          onChanged: (value) {
+                            password = value;
+                          },
                           decoration: kDecorationbox.copyWith(
                             hintText: 'enter password',
                             hintStyle: TextStyle(color: Colors.greenAccent),
@@ -86,7 +98,14 @@ class _LoginpageState extends State<Loginpage>
                             "LOGIN",
                             style: new TextStyle(color: Colors.purple),
                           ),
-                          onPressed: () => {},
+                          onPressed: () {
+                            final existingUser =
+                                _auth.signInWithEmailAndPassword(
+                                    email: email, password: password);
+                            if (existingUser != null) {
+                              Navigator.pushNamed(context, MediPage.id);
+                            }
+                          },
                           splashColor: Colors.greenAccent,
                         )
                       ],

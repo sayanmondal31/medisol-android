@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medisol/constants.dart';
 import 'package:medisol/login/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterPage extends StatefulWidget {
   static const String id = 'register';
@@ -9,6 +10,9 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage>
     with SingleTickerProviderStateMixin {
+  final _auth = FirebaseAuth.instance;
+  String email;
+  String password;
   AnimationController _iconanimationController;
   Animation<double> _iconanimation;
 
@@ -62,11 +66,24 @@ class _RegisterPageState extends State<RegisterPage>
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         new TextFormField(
-                          decoration: kDecorationbox.copyWith(hintText: 'enter email',hintStyle:TextStyle(color: Colors.greenAccent) )
+                            onChanged: (value) {
+                              email = value;
+                            },
+                            decoration: kDecorationbox.copyWith(
+                              hintText: 'enter email',
+                              hintStyle: TextStyle(color: Colors.greenAccent),
+                            )),
+                        SizedBox(
+                          height: 30,
                         ),
-                        SizedBox(height: 30,),
                         new TextFormField(
-                          decoration: kDecorationbox.copyWith(hintText: 'enter password',hintStyle: TextStyle(color: Colors.greenAccent)),
+                          onChanged: (value) {
+                            password = value;
+                          },
+                          decoration: kDecorationbox.copyWith(
+                            hintText: 'enter password',
+                            hintStyle: TextStyle(color: Colors.greenAccent),
+                          ),
                           keyboardType: TextInputType.emailAddress,
                           obscureText: true,
                         ),
@@ -79,8 +96,13 @@ class _RegisterPageState extends State<RegisterPage>
                             "REGISTER",
                             style: new TextStyle(color: Colors.purpleAccent),
                           ),
-                          onPressed: () => {
-                            Navigator.pushNamed(context, Loginpage.id)
+                          onPressed: () async {
+                            final newUser =
+                                await _auth.createUserWithEmailAndPassword(
+                                    email: email, password: password);
+                            if (newUser != null) {
+                              Navigator.pushNamed(context, Loginpage.id);
+                            }
                           },
                           splashColor: Colors.greenAccent,
                         )
