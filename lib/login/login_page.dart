@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medisol/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:medisol/deepscan.dart/medi_web.dart';
 import 'package:medisol/firstpage/page.dart';
 
 class Loginpage extends StatefulWidget {
@@ -33,6 +34,7 @@ class _LoginpageState extends State<Loginpage>
     return new Scaffold(
       backgroundColor: Colors.black,
       body: new Stack(
+        
         fit: StackFit.expand,
         children: <Widget>[
           new Image(
@@ -43,6 +45,9 @@ class _LoginpageState extends State<Loginpage>
           ),
           new Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            
             children: <Widget>[
               Hero(
                 tag: 'logo',
@@ -103,7 +108,7 @@ class _LoginpageState extends State<Loginpage>
                                 _auth.signInWithEmailAndPassword(
                                     email: email, password: password);
                             if (existingUser != null) {
-                              Navigator.pushNamed(context, MediPage.id);
+                              Navigator.pushNamed(context, DeepScan.id);
                             }
                           },
                           splashColor: Colors.greenAccent,

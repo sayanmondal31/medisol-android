@@ -13,6 +13,12 @@ class _RegisterPageState extends State<RegisterPage>
   final _auth = FirebaseAuth.instance;
   String email;
   String password;
+  String fname;
+  String lname;
+  String weight;
+  String phone;
+  String height;
+
   AnimationController _iconanimationController;
   Animation<double> _iconanimation;
 
@@ -65,6 +71,33 @@ class _RegisterPageState extends State<RegisterPage>
                     child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
+                        TextFormField(
+                            onChanged: (value) {
+                              fname = value;
+                            },
+                            decoration: kDecorationbox.copyWith(
+                              hintText: 'first name',
+                              hintStyle: TextStyle(color: Colors.greenAccent),
+                            )),
+                            SizedBox(height: 30.0,),
+                            TextFormField(
+                            onChanged: (value) {
+                              lname = value;
+                            },
+                            decoration: kDecorationbox.copyWith(
+                              hintText: 'last name',
+                              hintStyle: TextStyle(color: Colors.greenAccent),
+                            )),
+                            SizedBox(height: 30.0,),
+                            TextFormField(
+                            onChanged: (value) {
+                              phone = value;
+                            },
+                            decoration: kDecorationbox.copyWith(
+                              hintText: 'phone no',
+                              hintStyle: TextStyle(color: Colors.greenAccent),
+                            )),
+                            SizedBox(height: 30.0,),
                         new TextFormField(
                             onChanged: (value) {
                               email = value;
@@ -79,6 +112,7 @@ class _RegisterPageState extends State<RegisterPage>
                         new TextFormField(
                           onChanged: (value) {
                             password = value;
+                            
                           },
                           decoration: kDecorationbox.copyWith(
                             hintText: 'enter password',

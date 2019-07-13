@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.medisol">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
+     
+
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -13,6 +17,7 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
+            android:authorities="com.example.asd.fileprovider"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
