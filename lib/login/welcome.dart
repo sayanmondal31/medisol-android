@@ -3,6 +3,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:medisol/login/goto_screen.dart';
 import 'package:medisol/login/login_page.dart';
 import 'package:medisol/login/register_page.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome';
@@ -67,9 +69,10 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 Padding(
                   padding: const EdgeInsets.only(left: 200.0),
                   child: RotateAnimatedTextKit(
-                      
                       text: ["health", "family", "friends"],
-                      textStyle: TextStyle(fontSize: 40.0,),
+                      textStyle: TextStyle(
+                        fontSize: 40.0,
+                      ),
                       textAlign: TextAlign.start,
                       alignment:
                           AlignmentDirectional.topStart // or Alignment.topLeft
@@ -84,14 +87,18 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               text: 'Login',
               colors: Colors.blue[200],
               onPress: () {
+                CircularProgressIndicator(backgroundColor: Colors.green,);
                 Navigator.pushNamed(context, Loginpage.id);
+                
               },
             ),
             GotoButton(
               text: 'registration',
               colors: Colors.purple,
               onPress: () {
+                CircularProgressIndicator(backgroundColor: Colors.green,);
                 Navigator.pushNamed(context, RegisterPage.id);
+                
               },
             )
           ],

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:medisol/first_aid/burn.dart';
 import 'package:medisol/first_aid/cuts.dart';
@@ -21,8 +22,8 @@ class MediSol extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.light(),
       // debugShowCheckedModeBanner: false,
-      home: MediPage(),
-      initialRoute: MediPage.id,
+      home: WelcomeScreen(),
+      initialRoute: WelcomeScreen.id,
       routes: {
         MediPage.id: (context) => MediPage(),
         FirstaidPage.id: (context) => FirstaidPage(),
@@ -37,6 +38,7 @@ class MediSol extends StatelessWidget {
         Loginpage.id: (context) => Loginpage(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         RegisterPage.id: (context) => RegisterPage(),
+        
       },
     );
   }

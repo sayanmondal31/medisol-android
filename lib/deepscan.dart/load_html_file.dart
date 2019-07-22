@@ -16,7 +16,7 @@ class _LoadHTMLFileToWEbViewState extends State<LoadHTMLFileToWEbView> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return WebviewScaffold(
-            appBar: AppBar(title: Text("Load HTM file in WebView")),
+            // appBar: AppBar(title: Text("Load HTM file in WebView")),
             withJavascript: true,
             // appCacheEnabled: true,
             url: new Uri.dataFromString(snapshot.data, mimeType: 'text/html')

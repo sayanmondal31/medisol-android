@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:medisol/constants.dart';
 import 'package:medisol/login/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+final _firestore = Firestore.instance;
 
 class RegisterPage extends StatefulWidget {
   static const String id = 'register';
@@ -18,6 +21,7 @@ class _RegisterPageState extends State<RegisterPage>
   String weight;
   String phone;
   String height;
+  String age;
 
   AnimationController _iconanimationController;
   Animation<double> _iconanimation;
@@ -71,33 +75,37 @@ class _RegisterPageState extends State<RegisterPage>
                     child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
+                        //  TextFormField(
+                        //     onChanged: (value) {
+                        //       fname = value;
+                        //     },
+                        //     decoration: kDecorationbox.copyWith(
+                        //       hintText: 'first name',
+                        //       hintStyle: TextStyle(color: Colors.greenAccent),
+                        //     )),
+                        //     SizedBox(height: 30.0,),
                         TextFormField(
-                            onChanged: (value) {
-                              fname = value;
-                            },
-                            decoration: kDecorationbox.copyWith(
-                              hintText: 'first name',
-                              hintStyle: TextStyle(color: Colors.greenAccent),
-                            )),
-                            SizedBox(height: 30.0,),
-                            TextFormField(
                             onChanged: (value) {
                               lname = value;
                             },
                             decoration: kDecorationbox.copyWith(
-                              hintText: 'last name',
+                              hintText: 'age',
                               hintStyle: TextStyle(color: Colors.greenAccent),
                             )),
-                            SizedBox(height: 30.0,),
-                            TextFormField(
+                        SizedBox(
+                          height: 30.0,
+                        ),
+                        TextFormField(
                             onChanged: (value) {
-                              phone = value;
+                              age = value;
                             },
                             decoration: kDecorationbox.copyWith(
-                              hintText: 'phone no',
+                              hintText: 'weight',
                               hintStyle: TextStyle(color: Colors.greenAccent),
                             )),
-                            SizedBox(height: 30.0,),
+                        SizedBox(
+                          height: 30.0,
+                        ),
                         new TextFormField(
                             onChanged: (value) {
                               email = value;
@@ -112,7 +120,6 @@ class _RegisterPageState extends State<RegisterPage>
                         new TextFormField(
                           onChanged: (value) {
                             password = value;
-                            
                           },
                           decoration: kDecorationbox.copyWith(
                             hintText: 'enter password',
@@ -134,6 +141,12 @@ class _RegisterPageState extends State<RegisterPage>
                             final newUser =
                                 await _auth.createUserWithEmailAndPassword(
                                     email: email, password: password);
+                            _firestore.collection('userdetails').add({
+                              'age': age,
+                              'sender': email,
+                              'weight': weight
+                            });
+
                             if (newUser != null) {
                               Navigator.pushNamed(context, Loginpage.id);
                             }
