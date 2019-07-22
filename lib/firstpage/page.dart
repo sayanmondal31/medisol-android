@@ -69,12 +69,6 @@ class _MediPageState extends State<MediPage> {
                   child: new Text("s"),
                 ),
               ),
-              otherAccountsPictures: <Widget>[
-                new CircleAvatar(
-                  backgroundColor: Colors.cyan,
-                  child: new Text("s"),
-                )
-              ],
             ),
             //      new ListTile(
             //    title: new Text("home"),

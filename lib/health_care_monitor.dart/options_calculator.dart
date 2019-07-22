@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medisol/firstpage/button_tab.dart';
+import 'package:medisol/health_care_monitor.dart/bmi_calculator/input_page.dart';
 
 class ClaculatorTabs extends StatefulWidget {
   @override
@@ -9,58 +11,36 @@ class _ClaculatorTabsState extends State<ClaculatorTabs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        scrollDirection: Axis.horizontal,
-        children: <Widget>[
-          GestureDetector(
-              onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 270),
-                child: Card(
-                    elevation: 10,
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    // padding: EdgeInsets.symmetric(vertical: 80.0),
-                    color: Colors.amber,
-                    // duration: Duration(seconds: 1),
-                    child: Center(child: Text('BMI calculator',style: TextStyle(),)),
-                  ),
-              ),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            ButtonTabs(
+              text: 'BMI Calculator',
+              press: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => BmiCalPage())),
             ),
-          SizedBox(
-            height: 10,
-          ),
-           GestureDetector(
-              onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50,vertical: 270),
-                child: Card(
-                    elevation: 10,
-                    
-                    // padding: EdgeInsets.symmetric(vertical: 80.0),
-                    color: Colors.amber,
-                    // duration: Duration(seconds: 1),
-                    child: Center(child: Text('BMI calculator',style: TextStyle(),)),
-                  ),
-              ),
+            SizedBox(
+              width: 20,
             ),
-          
-          
-          SizedBox(height: 10.0,),
-          FlatButton(
-            onPressed: (){},
-                      child: AnimatedContainer(
-              duration: Duration(seconds: 1),
-              child: Text('Fat calculator'),
+            ButtonTabs(
+              text: 'BMR Calcualtor',
             ),
-          ),
-          FlatButton(
-            onPressed: (){},
-                      child: AnimatedContainer(
-              duration: Duration(seconds: 1),
-              child: Text('BMR calculator'),
+            SizedBox(
+              width: 20.0,
             ),
-          ),
-        ],
+            ButtonTabs(
+              text: 'Calorie Calculator',
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            ButtonTabs(
+              text: 'Fat Calculator',
+            )
+          ],
+        ),
       ),
     );
   }
