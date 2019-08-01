@@ -53,6 +53,7 @@ class _MediPageState extends State<MediPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       drawer: Drawer(
         child: new ListView(
           children: <Widget>[
@@ -66,7 +67,7 @@ class _MediPageState extends State<MediPage> {
                 ),
                 child: new CircleAvatar(
                   backgroundColor: Colors.cyan,
-                  child: new Text("s"),
+                  child: new Text("${existingUser.email[0]}"),
                 ),
               ),
             ),
@@ -113,7 +114,7 @@ class _MediPageState extends State<MediPage> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Colors.cyan[900],
+        backgroundColor: Colors.blueGrey[600],
         title: Center(
           child: Row(
             children: <Widget>[
@@ -121,15 +122,7 @@ class _MediPageState extends State<MediPage> {
                 padding: EdgeInsets.only(left: 100),
                 child: Center(child: Text('MediSol')),
               ),
-              SizedBox(
-                width: 50,
-              ),
-              Expanded(
-                child: GestureDetector(
-                  // onTap: ()=>Navigator.push(context, MaterialPageRoute(builder:(context)=>CameraScreen(cameras) )),
-                  child: Icon(Icons.camera),
-                ),
-              )
+              
             ],
           ),
         ),
@@ -146,6 +139,7 @@ class _MediPageState extends State<MediPage> {
                   children: <Widget>[
                     ButtonUi(
                       text: 'First aid',
+                      iconColor: Colors.red[600],
                       press: () {
                         Navigator.pushNamed(context, FirstaidPage.id);
                       },
@@ -153,6 +147,7 @@ class _MediPageState extends State<MediPage> {
                     ),
                     ButtonUi(
                       text: 'Symptoms',
+                      iconColor: Colors.red[300],
                       press: () => Navigator.pushNamed(
                         context,
                         SymptomsPage.id,
@@ -170,12 +165,14 @@ class _MediPageState extends State<MediPage> {
                   children: <Widget>[
                     ButtonUi(
                       text: 'Deep Scan',
+                      iconColor: Colors.brown[400],
                       iconData: FontAwesomeIcons.xRay,
                       press: () => Navigator.push(context,
                           MaterialPageRoute(builder: (context) => DeepScan())),
                     ),
                     ButtonUi(
                       text: 'Medicin reminder',
+                      iconColor: Colors.green,
                       press: () {},
                       iconData: FontAwesomeIcons.pills,
                     )
@@ -190,6 +187,7 @@ class _MediPageState extends State<MediPage> {
                   children: <Widget>[
                     ButtonUi(
                       text: 'Health care Monitor',
+                      iconColor: Colors.green[600],
                       iconData: FontAwesomeIcons.heartbeat,
                       press: () => Navigator.push(
                         context,
@@ -198,7 +196,8 @@ class _MediPageState extends State<MediPage> {
                       ),
                     ),
                     ButtonUi(
-                      text: 'Metarnal',
+                      text: 'Maternal',
+                      iconColor: Colors.blue,
                       iconData: FontAwesomeIcons.userNurse,
                       press: () {},
                     )
@@ -206,17 +205,25 @@ class _MediPageState extends State<MediPage> {
                 ),
               ),
             ),
-            Opacity(
-              opacity: 0.8,
-              child: Card(
-                elevation: 5,
-                color: Colors.red[200],
-                margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                child: Center(
-                    child: Text(
-                  'Emergency',
-                  style: TextStyle(fontSize: 50),
-                )),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: RaisedButton(
+                color: Colors.red[300],
+                onPressed: (){},
+                            child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Opacity(
+                    opacity: 0.8,
+                    child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                      'Emergency',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                        )),
+                  ),
+                ),
               ),
             )
           ],

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medisol/first_aid/burn.dart';
+import 'package:medisol/first_aid/cuts.dart';
 import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
+import 'package:medisol/first_aid/stroke.dart';
 
 
 class FirstaidPage extends StatelessWidget {
@@ -9,37 +13,39 @@ class FirstaidPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
-        title: Text('First aid '),
+        backgroundColor: Colors.blueGrey,
+        title: Center(child: Text('First aid ')),
       ),
       body: ListView(
         padding: const EdgeInsets.all(8.0),
         children: <Widget>[
           FirstaidComponents(
             problemText: 'burn',
-            gotoPageName: '/firstaidburn',
+            press: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>BurnPage())),
+            iconData: FontAwesomeIcons.burn,
           ),
           SizedBox(
             height: 10.0,
           ),
           FirstaidComponents(
             problemText: 'cuts',
-            gotoPageName: '/firstaidcuts',
+            press: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>CutsPage())),
+            iconData: FontAwesomeIcons.cut,
           ),
           SizedBox(
             height: 10.0,
           ),
           FirstaidComponents(
             problemText: 'stroke',
-            gotoPageName: '/firstaidstroke',
+            press: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>StrokePage())),
+            iconData: FontAwesomeIcons.brain,
           ),
           SizedBox(
             height: 10.0,
           ),
-          FirstaidComponents(
-            problemText: 'tearoff',
-            gotoPageName: '/firstaidtear',
-          ),
+          
         ],
       ),
       floatingActionButton: FloatingActionButton(

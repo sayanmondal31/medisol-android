@@ -13,7 +13,9 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage>
     with SingleTickerProviderStateMixin {
+
   final _auth = FirebaseAuth.instance;
+  
   String email;
   String password;
   String fname;

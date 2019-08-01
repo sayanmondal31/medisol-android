@@ -5,6 +5,7 @@ import 'package:medisol/deepscan.dart/medi_web.dart';
 import 'package:medisol/firstpage/page.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'dart:async';
 
 class Loginpage extends StatefulWidget {
   static const String id = 'loginpage';
@@ -14,7 +15,28 @@ class Loginpage extends StatefulWidget {
 class _LoginpageState extends State<Loginpage>
     with SingleTickerProviderStateMixin {
   final FirebaseAuth _auth = FirebaseAuth.instance;
- 
+  final GoogleSignIn googleSignIn =new GoogleSignIn();
+
+  Future<String> _userSignInWithGoogle() async {
+    final GoogleSignInAccount googleUser = await googleSignIn.signIn();//showing exception
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    final FirebaseUser user = await _auth.signInWithCredential(credential);
+    assert(user.email != null);
+    assert(user.displayName != null);
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
+
+    final FirebaseUser currentUser = await _auth.currentUser();
+    assert(user.uid == currentUser.uid);
+
+    return 'signInWithGoogle succeeded: $user';
+  }
+
   String email;
   String password;
   bool spinner = false;
@@ -39,7 +61,6 @@ class _LoginpageState extends State<Loginpage>
       backgroundColor: Colors.black,
       body: ModalProgressHUD(
         inAsyncCall: spinner,
-        
         child: new Stack(
           fit: StackFit.expand,
           children: <Widget>[
@@ -54,6 +75,17 @@ class _LoginpageState extends State<Loginpage>
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                Card(
+                  child: RaisedButton(onPressed:(){
+                    final googleUserauth = _userSignInWithGoogle();
+                  if(googleUserauth!=null)
+                  {
+                    CircularProgressIndicator();
+                    Navigator.pushNamed(context, MediPage.id);
+                  }
+                  }),
+                ),
+
                 Hero(
                   tag: 'logo',
                   child: Container(
