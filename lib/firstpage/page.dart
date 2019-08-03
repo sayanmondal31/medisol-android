@@ -9,6 +9,8 @@ import 'package:medisol/firstpage/ButtonUi.dart';
 import 'package:medisol/firstpage/camera.dart';
 import 'package:medisol/firstpage/userinfo.dart' as prefix0;
 import 'package:medisol/health_care_monitor.dart/options_calculator.dart';
+import 'package:medisol/medicine_reminder/medrempage.dart';
+import 'package:medisol/medicine_reminder/src/ui/homepage/homepage.dart';
 import 'package:medisol/symptoms/symptom_page/symptom_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -59,7 +61,7 @@ class _MediPageState extends State<MediPage> {
           children: <Widget>[
             new UserAccountsDrawerHeader(
               accountName: new Text(""),
-              accountEmail: new Text('${existingUser.email}'),
+              accountEmail: new Text(''),
               currentAccountPicture: GestureDetector(
                 onTap: () => Navigator.push(
                   context,
@@ -173,7 +175,11 @@ class _MediPageState extends State<MediPage> {
                     ButtonUi(
                       text: 'Medicin reminder',
                       iconColor: Colors.green,
-                      press: () {},
+                      press: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>MedicineReminder()),
+                      ),
                       iconData: FontAwesomeIcons.pills,
                     )
                   ],
