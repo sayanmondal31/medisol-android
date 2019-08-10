@@ -22,8 +22,8 @@ class MediSol extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.light(),
       // debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
-      initialRoute: WelcomeScreen.id,
+      home: MediPage(),
+      initialRoute: MediPage.id,
       routes: {
         MediPage.id: (context) => MediPage(),
         FirstaidPage.id: (context) => FirstaidPage(),

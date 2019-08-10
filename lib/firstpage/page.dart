@@ -69,7 +69,7 @@ class _MediPageState extends State<MediPage> {
                 ),
                 child: new CircleAvatar(
                   backgroundColor: Colors.cyan,
-                  child: new Text("${existingUser.email[0]}"),
+                  child: new Text(""),
                 ),
               ),
             ),

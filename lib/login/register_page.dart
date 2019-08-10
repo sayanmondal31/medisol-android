@@ -87,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage>
                         //     )),
                         //     SizedBox(height: 30.0,),
                         TextFormField(
-                            onChanged: (value) {
+                            onSaved: (value) {
                               lname = value;
                             },
                             decoration: kDecorationbox.copyWith(
@@ -98,7 +98,7 @@ class _RegisterPageState extends State<RegisterPage>
                           height: 30.0,
                         ),
                         TextFormField(
-                            onChanged: (value) {
+                            onSaved: (value) {
                               age = value;
                             },
                             decoration: kDecorationbox.copyWith(
@@ -109,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage>
                           height: 30.0,
                         ),
                         new TextFormField(
-                            onChanged: (value) {
+                            onSaved: (value) {
                               email = value;
                             },
                             decoration: kDecorationbox.copyWith(
@@ -120,7 +120,7 @@ class _RegisterPageState extends State<RegisterPage>
                           height: 30,
                         ),
                         new TextFormField(
-                          onChanged: (value) {
+                          onSaved: (value) {
                             password = value;
                           },
                           decoration: kDecorationbox.copyWith(

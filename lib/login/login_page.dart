@@ -109,7 +109,7 @@ class _LoginpageState extends State<Loginpage>
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           new TextFormField(
-                            onChanged: (value) {
+                            onSaved: (value) {
                               email = value;
                             },
                             decoration: kDecorationbox.copyWith(
@@ -121,7 +121,7 @@ class _LoginpageState extends State<Loginpage>
                             height: 30,
                           ),
                           new TextFormField(
-                            onChanged: (value) {
+                            onSaved: (value) {
                               password = value;
                             },
                             decoration: kDecorationbox.copyWith(
