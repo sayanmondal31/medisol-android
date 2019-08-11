@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
 import 'package:medisol/firstpage/button_tab.dart';
 import 'package:medisol/health_care_monitor.dart/bmi_calculator/input_page.dart';
 import 'package:medisol/health_care_monitor.dart/bmr_calculator/decide_page.dart';
@@ -12,35 +13,44 @@ class _ClaculatorTabsState extends State<ClaculatorTabs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Calculators"),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: ListView(
-          scrollDirection: Axis.horizontal,
+          scrollDirection: Axis.vertical,
           children: <Widget>[
-            ButtonTabs(
-              text: 'BMI Calculator',
+            FirstaidComponents(
+              problemText: 'BMI Calculator',
               press: () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => BmiCalPage())),
+                  iconData: Icons.camera_roll,
             ),
             SizedBox(
               width: 20,
             ),
-            ButtonTabs(
+            FirstaidComponents(
               press: () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => DecidePage())),
-              text: 'BMR Calcualtor',
+              problemText: 'BMR Calcualtor',
+              iconData: Icons.camera_roll,
             ),
             SizedBox(
               width: 20.0,
             ),
-            ButtonTabs(
-              text: 'Calorie Calculator',
+            FirstaidComponents(
+              problemText: 'Calorie Calculator',
+              press: (){},
+              iconData: Icons.camera_roll,
             ),
             SizedBox(
               width: 20,
             ),
-            ButtonTabs(
-              text: 'Fat Calculator',
+            FirstaidComponents(
+              problemText: 'Fat Calculator',
+              press: (){},
+              iconData: Icons.camera_roll,
             )
           ],
         ),

@@ -5,11 +5,20 @@ class StrokePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Stroke'),),
-      
-      
-      //Todo:put components
-      
+      appBar: AppBar(
+        title: Text('Stroke'),
+      ),
+      body: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Card(
+              elevation: 10.0,
+              child: Image.network('')
+            )
+          ],
+        ),
+      ),
     );
   }
 }

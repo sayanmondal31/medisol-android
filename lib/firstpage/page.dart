@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:medisol/deepscan.dart/medi_web.dart';
+import 'package:medisol/emergency/map.dart';
+import 'package:medisol/emergency/map_buttons.dart';
 import 'package:medisol/first_aid/first_aid_page/firstAid_page.dart';
 import 'package:medisol/firstpage/ButtonUi.dart';
 import 'package:medisol/firstpage/camera.dart';
@@ -22,6 +24,8 @@ FirebaseUser existingUser;
 
 class MediPage extends StatefulWidget {
   static const String id = 'medihomepage';
+  bool darkThemeEnabled;
+  MediPage({this.darkThemeEnabled});
 
   @override
   _MediPageState createState() => _MediPageState();
@@ -99,6 +103,8 @@ class _MediPageState extends State<MediPage> {
                 //  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new NotificationPage("notification")));
               },
             ),
+            Divider(),
+            
 
             new Divider(),
             new ListTile(
@@ -116,6 +122,7 @@ class _MediPageState extends State<MediPage> {
         ),
       ),
       appBar: AppBar(
+        
         backgroundColor: Colors.blueGrey[600],
         title: Center(
           child: Row(
@@ -124,6 +131,8 @@ class _MediPageState extends State<MediPage> {
                 padding: EdgeInsets.only(left: 100),
                 child: Center(child: Text('MediSol')),
               ),
+              SizedBox(width: 30.0,),
+              
               
             ],
           ),
@@ -202,7 +211,7 @@ class _MediPageState extends State<MediPage> {
                       ),
                     ),
                     ButtonUi(
-                      text: 'Maternal',
+                      text: 'Fitness',
                       iconColor: Colors.blue,
                       iconData: FontAwesomeIcons.userNurse,
                       press: () {},
@@ -214,8 +223,11 @@ class _MediPageState extends State<MediPage> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: RaisedButton(
+                splashColor: Colors.red,
                 color: Colors.red[300],
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MapButtton()));
+                },
                             child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Opacity(
@@ -238,3 +250,5 @@ class _MediPageState extends State<MediPage> {
     );
   }
 }
+
+

@@ -45,6 +45,8 @@ dependencies:
   rxdart: ^0.22.1
   # new added
   provider: ^3.0.0+1
+  geolocator: ^5.0.1
+  google_maps_flutter: ^0.5.20+2
   flutter_local_notifications: 
   flare_flutter:
     git: 

@@ -17,11 +17,13 @@ import 'package:medisol/symptoms/symptom_page/symptom_page.dart';
 void main() => runApp(MediSol());
 
 class MediSol extends StatelessWidget {
+  // bool darkThemeEnabled = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       theme: ThemeData.light(),
-      // debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       home: MediPage(),
       initialRoute: MediPage.id,
       routes: {

@@ -12,7 +12,7 @@ class SymptomsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blueGrey[100] ,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        // backgroundColor: Colors.blueGrey,
         title: Text('Symptoms'),
       ),
       body: ListView(
