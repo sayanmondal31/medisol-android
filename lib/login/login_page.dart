@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:medisol/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:medisol/deepscan.dart/medi_web.dart';
@@ -75,97 +76,101 @@ class _LoginpageState extends State<Loginpage>
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Card(
-                  child: RaisedButton(onPressed:(){
-                    final googleUserauth = _userSignInWithGoogle();
+                Padding(
+                  padding: const EdgeInsets.all(80.0),
+                  child: RaisedButton(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(FontAwesomeIcons.google),
+                        SizedBox(width: 20.0,),
+                        Text('Sign In')
+                      ],
+                    ),
+                    onPressed:()async{
+                    final googleUserauth = await _userSignInWithGoogle();
                   if(googleUserauth!=null)
                   {
                     CircularProgressIndicator();
-                    Navigator.pushNamed(context, MediPage.id);
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=>MediPage()));
                   }
                   }),
                 ),
 
-                Hero(
-                  tag: 'logo',
-                  child: Container(
-                    height: 200.0,
-                    child: Image.asset('images/logo.png'),
-                  ),
-                ),
-                new Form(
-                  child: Theme(
-                    data: new ThemeData(
-                      brightness: Brightness.dark,
-                      primarySwatch: Colors.teal,
-                      inputDecorationTheme: new InputDecorationTheme(
-                        labelStyle: new TextStyle(
-                            color: Colors.tealAccent, fontSize: 20.0),
-                      ),
-                    ),
-                    child: Container(
-                      padding: const EdgeInsets.all(40.0),
-                      child: new Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          new TextFormField(
-                            onSaved: (value) {
-                              email = value;
-                            },
-                            decoration: kDecorationbox.copyWith(
-                              hintText: 'enter email',
-                              hintStyle: TextStyle(color: Colors.greenAccent),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          new TextFormField(
-                            onSaved: (value) {
-                              password = value;
-                            },
-                            decoration: kDecorationbox.copyWith(
-                              hintText: 'enter password',
-                              hintStyle: TextStyle(color: Colors.greenAccent),
-                            ),
-                            keyboardType: TextInputType.emailAddress,
-                            obscureText: true,
-                          ),
-                          new Padding(
-                            padding: const EdgeInsets.only(top: 20.0),
-                          ),
-                          new MaterialButton(
-                            color: Colors.teal,
-                            child: new Text(
-                              "LOGIN",
-                              style: new TextStyle(color: Colors.purple),
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                spinner = true;
-                              });
-                              try {
-                                final existingUser =
-                                    _auth.signInWithEmailAndPassword(
-                                        email: email, password: password);
-                                if (existingUser != null) {
-                                  CircularProgressIndicator();
-                                  Navigator.pushNamed(context, MediPage.id);
-                                }
-                                setState(() {
-                                  spinner = false;
-                                });
-                              } catch (e) {
-                                print(e);
-                              }
-                            },
-                            splashColor: Colors.greenAccent,
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                )
+                
+                // new Form(
+                //   child: Theme(
+                //     data: new ThemeData(
+                //       brightness: Brightness.dark,
+                //       primarySwatch: Colors.teal,
+                //       inputDecorationTheme: new InputDecorationTheme(
+                //         labelStyle: new TextStyle(
+                //             color: Colors.tealAccent, fontSize: 20.0),
+                //       ),
+                //     ),
+                //     child: Container(
+                //       padding: const EdgeInsets.all(40.0),
+                //       child: new Column(
+                //         crossAxisAlignment: CrossAxisAlignment.center,
+                //         children: <Widget>[
+                //           new TextFormField(
+                //             onSaved: (value) {
+                //               email = value;
+                //             },
+                //             decoration: kDecorationbox.copyWith(
+                //               hintText: 'enter email',
+                //               hintStyle: TextStyle(color: Colors.greenAccent),
+                //             ),
+                //           ),
+                //           SizedBox(
+                //             height: 30,
+                //           ),
+                //           new TextFormField(
+                //             onSaved: (value) {
+                //               password = value;
+                //             },
+                //             decoration: kDecorationbox.copyWith(
+                //               hintText: 'enter password',
+                //               hintStyle: TextStyle(color: Colors.greenAccent),
+                //             ),
+                //             keyboardType: TextInputType.emailAddress,
+                //             obscureText: true,
+                //           ),
+                //           new Padding(
+                //             padding: const EdgeInsets.only(top: 20.0),
+                //           ),
+                //           new MaterialButton(
+                //             color: Colors.teal,
+                //             child: new Text(
+                //               "LOGIN",
+                //               style: new TextStyle(color: Colors.purple),
+                //             ),
+                //             onPressed: () {
+                //               setState(() {
+                //                 spinner = true;
+                //               });
+                //               try {
+                //                 final existingUser =
+                //                     _auth.signInWithEmailAndPassword(
+                //                         email: email, password: password);
+                //                 if (existingUser != null) {
+                //                   CircularProgressIndicator();
+                //                   Navigator.pushNamed(context, MediPage.id);
+                //                 }
+                //                 setState(() {
+                //                   spinner = false;
+                //                 });
+                //               } catch (e) {
+                //                 print(e);
+                //               }
+                //             },
+                //             splashColor: Colors.greenAccent,
+                //           )
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // )
               ],
             )
           ],

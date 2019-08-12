@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medisol/drawerbox.dart';
 import 'package:medisol/firstpage/page.dart';
 import 'package:medisol/medicine_reminder/src/global_bloc.dart';
 import 'package:medisol/medicine_reminder/src/models/medicine.dart';
@@ -23,6 +24,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final GlobalBloc _globalBloc = Provider.of<GlobalBloc>(context);
     return Scaffold(
+      drawer:DrawerBox(),
         appBar: AppBar(
     backgroundColor: Color(0xFF3EB16F),
     title: Row(

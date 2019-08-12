@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medisol/drawerbox.dart';
 import 'package:medisol/first_aid/burn.dart';
 import 'package:medisol/first_aid/cuts.dart';
 import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
@@ -13,10 +14,19 @@ class FirstaidPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[100],
+      drawer: DrawerBox(),
+      // backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
-        title: Center(child: Text('First aid ')),
+        // backgroundColor: Colors.blueGrey,
+        title: Row(
+          children: <Widget>[
+            GestureDetector(
+              onTap: ()=>Navigator.pop(context),
+              child: Icon(Icons.arrow_back_ios)),
+            SizedBox(width: 90,),
+            Center(child: Text('First aid ')),
+          ],
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(8.0),

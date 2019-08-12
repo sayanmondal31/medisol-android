@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 
@@ -25,8 +26,73 @@ class _EmergencyMapState extends State<EmergencyMap> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: new ListView(
+          children: <Widget>[
+            new UserAccountsDrawerHeader(
+              accountName: new Text(""),
+              accountEmail: new Text(''),
+              currentAccountPicture: GestureDetector(
+                onTap: () {},
+                child: new CircleAvatar(
+                  backgroundColor: Colors.cyan,
+                  child: new Text(""),
+                ),
+              ),
+            ),
+            //      new ListTile(
+            //    title: new Text("home"),
+            //    trailing: new Icon(Icons.home),
+            //    onTap: (){
+            //      Navigator.of(context).pop();
+            //      Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new NewPage("home")));
+            //    },
+            //  ),
+
+            new ListTile(
+              title: new Text("demo"),
+              trailing: new Icon(Icons.account_balance_wallet),
+              onTap: () {
+                Navigator.of(context).pop();
+                //  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new BalancePage("balance")));
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("notification"),
+              trailing: new Icon(Icons.notifications),
+              onTap: () {
+                Navigator.of(context).pop();
+                //  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new NotificationPage("notification")));
+              },
+            ),
+            Divider(),
+            
+
+            new Divider(),
+            new ListTile(
+                title: new Text("log out "),
+                trailing: new Icon(Icons.close),
+                onLongPress: () {
+                  // prefix1.signOutGoogle();
+                  
+                }),
+          ],
+        ),
+      ),
       appBar: AppBar(
-        title: Text("Near me "),
+        title: Row(
+          children: <Widget>[
+            GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back_ios),
+            ),
+            SizedBox(width: 90,),
+            Center(child: Text("Near me ")),
+          ],
+        ),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: _hospitalNearme,

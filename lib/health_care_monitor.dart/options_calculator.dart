@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medisol/drawerbox.dart';
 import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
 import 'package:medisol/firstpage/button_tab.dart';
 import 'package:medisol/health_care_monitor.dart/bmi_calculator/input_page.dart';
@@ -13,8 +14,17 @@ class _ClaculatorTabsState extends State<ClaculatorTabs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: new DrawerBox(),
       appBar: AppBar(
-        title: Text("Calculators"),
+        title: Row(
+          children: <Widget>[
+            GestureDetector(
+              onTap:()=>Navigator.pop(context),
+              child: Icon(Icons.arrow_back_ios)),
+            SizedBox(width: 90,),
+            Text("Calculators"),
+          ],
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -58,3 +68,5 @@ class _ClaculatorTabsState extends State<ClaculatorTabs> {
     );
   }
 }
+
+

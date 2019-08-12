@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medisol/drawerbox.dart';
 import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
 import 'package:medisol/symptoms/eyes.dart';
 import 'package:medisol/symptoms/fever.dart';
@@ -10,10 +11,19 @@ class SymptomsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[100] ,
+      drawer: DrawerBox(),
+      // backgroundColor: Colors.blueGrey[100] ,
       appBar: AppBar(
         // backgroundColor: Colors.blueGrey,
-        title: Text('Symptoms'),
+        title: Row(
+          children: <Widget>[
+            GestureDetector(
+              onTap: ()=>Navigator.pop(context),
+              child: Icon(Icons.arrow_back_ios)),
+            SizedBox(width: 90,),
+            Text('Symptoms'),
+          ],
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(8.0),

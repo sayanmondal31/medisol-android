@@ -14,7 +14,7 @@ class ButtonUi extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child:  RaisedButton(
-            color: Colors.white70,
+            color: Colors.white30,
             
             elevation: 20.0,
             onPressed: press,

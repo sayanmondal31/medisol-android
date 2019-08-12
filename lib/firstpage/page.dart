@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:medisol/deepscan.dart/medi_web.dart';
+import 'package:medisol/drawerbox.dart';
 import 'package:medisol/emergency/map.dart';
 import 'package:medisol/emergency/map_buttons.dart';
 import 'package:medisol/first_aid/first_aid_page/firstAid_page.dart';
@@ -11,14 +12,16 @@ import 'package:medisol/firstpage/ButtonUi.dart';
 import 'package:medisol/firstpage/camera.dart';
 import 'package:medisol/firstpage/userinfo.dart' as prefix0;
 import 'package:medisol/health_care_monitor.dart/options_calculator.dart';
+import 'package:medisol/login/signIn.dart' as prefix1;
 import 'package:medisol/medicine_reminder/medrempage.dart';
 import 'package:medisol/medicine_reminder/src/ui/homepage/homepage.dart';
 import 'package:medisol/symptoms/symptom_page/symptom_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 final _auth = FirebaseAuth.instance;
-
+final GoogleSignIn googleSignIn = GoogleSignIn();
 final _firestore = Firestore.instance;
 FirebaseUser existingUser;
 
@@ -33,6 +36,7 @@ class MediPage extends StatefulWidget {
 
 class _MediPageState extends State<MediPage> {
   String name;
+  bool _visible = true;
 
   @override
   void initState() {
@@ -59,71 +63,10 @@ class _MediPageState extends State<MediPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      drawer: Drawer(
-        child: new ListView(
-          children: <Widget>[
-            new UserAccountsDrawerHeader(
-              accountName: new Text(""),
-              accountEmail: new Text(''),
-              currentAccountPicture: GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => prefix0.UserINfo()),
-                ),
-                child: new CircleAvatar(
-                  backgroundColor: Colors.cyan,
-                  child: new Text(""),
-                ),
-              ),
-            ),
-            //      new ListTile(
-            //    title: new Text("home"),
-            //    trailing: new Icon(Icons.home),
-            //    onTap: (){
-            //      Navigator.of(context).pop();
-            //      Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new NewPage("home")));
-            //    },
-            //  ),
-
-            new ListTile(
-              title: new Text("demo"),
-              trailing: new Icon(Icons.account_balance_wallet),
-              onTap: () {
-                Navigator.of(context).pop();
-                //  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new BalancePage("balance")));
-              },
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("notification"),
-              trailing: new Icon(Icons.notifications),
-              onTap: () {
-                Navigator.of(context).pop();
-                //  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new NotificationPage("notification")));
-              },
-            ),
-            Divider(),
-            
-
-            new Divider(),
-            new ListTile(
-                title: new Text("log out "),
-                trailing: new Icon(Icons.close),
-                onLongPress: () {
-                  FirebaseAuth.instance
-                      .signOut()
-                      .then((value) {})
-                      .catchError((e) {
-                    print(e);
-                  });
-                }),
-          ],
-        ),
-      ),
+      // backgroundColor: Colors.grey[300],
+      drawer: DrawerBox(),
       appBar: AppBar(
-        
-        backgroundColor: Colors.blueGrey[600],
+        // backgroundColor: Colors.blueGrey[600],
         title: Center(
           child: Row(
             children: <Widget>[
@@ -131,14 +74,15 @@ class _MediPageState extends State<MediPage> {
                 padding: EdgeInsets.only(left: 100),
                 child: Center(child: Text('MediSol')),
               ),
-              SizedBox(width: 30.0,),
-              
-              
+              SizedBox(
+                width: 30.0,
+              ),
             ],
           ),
         ),
       ),
       body: Container(
+        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -178,8 +122,10 @@ class _MediPageState extends State<MediPage> {
                       text: 'Deep Scan',
                       iconColor: Colors.brown[400],
                       iconData: FontAwesomeIcons.xRay,
-                      press: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => DeepScan())),
+                      press: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DeepScan())),
                     ),
                     ButtonUi(
                       text: 'Medicin reminder',
@@ -187,7 +133,7 @@ class _MediPageState extends State<MediPage> {
                       press: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>MedicineReminder()),
+                            builder: (context) => MedicineReminder()),
                       ),
                       iconData: FontAwesomeIcons.pills,
                     )
@@ -224,22 +170,24 @@ class _MediPageState extends State<MediPage> {
               padding: const EdgeInsets.all(10.0),
               child: RaisedButton(
                 splashColor: Colors.red,
-                color: Colors.red[300],
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MapButtton()));
+                color: Colors.red,
+                onPressed: () async {
+                  
+                  await Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MapButtton()));
                 },
-                            child: Padding(
+                child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Opacity(
                     opacity: 0.8,
                     child: Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Text(
-                      'Emergency',
-                      style: TextStyle(fontSize: 30),
-                    ),
-                        )),
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                        'Emergency',
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    )),
                   ),
                 ),
               ),
@@ -251,4 +199,8 @@ class _MediPageState extends State<MediPage> {
   }
 }
 
+void signOutGoogle() async {
+  await googleSignIn.signOut();
 
+  print("User Sign Out");
+}

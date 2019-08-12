@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medisol/drawerbox.dart';
 import 'package:medisol/emergency/map.dart';
 import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
 import 'package:medisol/firstpage/ButtonUi.dart';
@@ -9,8 +10,17 @@ class MapButtton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerBox(),
       appBar: AppBar(
-        title: Text("Emergency"),
+        title: Row(
+          children: <Widget>[
+            GestureDetector(
+              onTap: ()=>Navigator.pop(context),
+              child: Icon(Icons.arrow_back_ios)),
+            SizedBox(width: 90.0,),
+            Text("Emergency"),
+          ],
+        ),
       ),
       body: Container(
         child: Column(
