@@ -122,10 +122,7 @@ class _MediPageState extends State<MediPage> {
                       text: 'Deep Scan',
                       iconColor: Colors.brown[400],
                       iconData: FontAwesomeIcons.xRay,
-                      press: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DeepScan())),
+                      press: () {}
                     ),
                     ButtonUi(
                       text: 'Medicin reminder',

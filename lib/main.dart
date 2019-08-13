@@ -4,8 +4,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medisol/first_aid/burn.dart';
 import 'package:medisol/first_aid/cuts.dart';
 import 'package:medisol/first_aid/first_aid_page/firstAid_page.dart';
-import 'package:medisol/first_aid/stroke.dart';
-import 'package:medisol/first_aid/tear_off.dart';
+import 'package:medisol/first_aid/fracture.dart';
+
+
 import 'package:medisol/firstpage/page.dart';
 import 'package:medisol/login/google_signin.dart';
 import 'package:medisol/login/login_page.dart';
@@ -24,8 +25,7 @@ class MediSol extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
       home: MediPage(),
       initialRoute: MediPage.id,
@@ -34,8 +34,8 @@ class MediSol extends StatelessWidget {
         FirstaidPage.id: (context) => FirstaidPage(),
         BurnPage.id: (context) => BurnPage(),
         CutsPage.id: (context) => CutsPage(),
-        StrokePage.id: (context) => StrokePage(),
-        TearOff.id: (context) => TearOff(),
+        FracturePage.id: (context) => FracturePage(),
+        
         SymptomsPage.id: (context) => SymptomsPage(),
         EyesPage.id: (context) => EyesPage(),
         FeverPage.id: (context) => FeverPage(),
@@ -44,7 +44,6 @@ class MediSol extends StatelessWidget {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         RegisterPage.id: (context) => RegisterPage(),
         GoogleSignInpage.id: (context) => GoogleSignInpage(),
-        
       },
     );
   }

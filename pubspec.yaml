@@ -75,6 +75,12 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/
+    - images/Burn/
+    - images/Cuts/
+    - images/Fractures/
+    - images/Nose_bleeding/
+    - images/Sprains/
+    - images/Sunburn/
     - assets/animations/
     - assets/sound/
     

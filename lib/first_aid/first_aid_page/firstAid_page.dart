@@ -5,7 +5,11 @@ import 'package:medisol/drawerbox.dart';
 import 'package:medisol/first_aid/burn.dart';
 import 'package:medisol/first_aid/cuts.dart';
 import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
-import 'package:medisol/first_aid/stroke.dart';
+import 'package:medisol/first_aid/fracture.dart';
+import 'package:medisol/first_aid/nose_bleeding.dart';
+import 'package:medisol/first_aid/sprains.dart';
+import 'package:medisol/first_aid/sunburns.dart';
+
 
 
 class FirstaidPage extends StatelessWidget {
@@ -48,9 +52,33 @@ class FirstaidPage extends StatelessWidget {
             height: 10.0,
           ),
           FirstaidComponents(
-            problemText: 'stroke',
-            press: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>StrokePage())),
-            iconData: FontAwesomeIcons.brain,
+            problemText: 'Fractures',
+            press: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>FracturePage())),
+            iconData: FontAwesomeIcons.bone,
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          FirstaidComponents(
+            problemText: 'Nose bleeding',
+            press: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>NoseBleeding())),
+            iconData: FontAwesomeIcons.hospital,
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          FirstaidComponents(
+            problemText: 'Sprains',
+            press: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>SprainPage())),
+            iconData: FontAwesomeIcons.hospital,
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          FirstaidComponents(
+            problemText: 'Sunbrun',
+            press: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>SunBurn())),
+            iconData: FontAwesomeIcons.hospital,
           ),
           SizedBox(
             height: 10.0,

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-
-
-class CutsPage extends StatelessWidget {
-  static const String id = 'cutspage';
+class NoseBleeding extends StatelessWidget {
+  static const String id = 'burnpage';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('cuts'),
+        title: Text('Nose Bleeding'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -20,7 +18,8 @@ class CutsPage extends StatelessWidget {
             Center(
               child: Text(
                 'Follow this steps,it will help you',
-                style: TextStyle(color: Colors.grey, fontSize: 30.0),
+                style: TextStyle(color: Colors.grey[200], fontSize: 38.0),
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(
@@ -29,7 +28,7 @@ class CutsPage extends StatelessWidget {
             Card(
               clipBehavior: Clip.antiAliasWithSaveLayer,
               child: Image(
-                image: AssetImage('images/Cuts/step1.jpg'),
+                image: AssetImage('images/Nose_bleeding/step1.jpg'),
               ),
             ),
             SizedBox(
@@ -44,9 +43,8 @@ class CutsPage extends StatelessWidget {
               height: 10,
             ),
             Card(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
               child: Image(
-                image: AssetImage('images/Cuts/step2.jpg'),
+                image: AssetImage('images/Nose_bleeding/step2.jpg'),
               ),
             ),
             SizedBox(
@@ -61,9 +59,8 @@ class CutsPage extends StatelessWidget {
               height: 10,
             ),
             Card(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
               child: Image(
-                image: AssetImage('images/Cuts/step3.jpg'),
+                image: AssetImage('images/Nose_bleeding/step3.jpg'),
               ),
             ),
             SizedBox(
@@ -78,9 +75,8 @@ class CutsPage extends StatelessWidget {
               height: 10,
             ),
             Card(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
               child: Image(
-                image: AssetImage('images/Cuts/step4.jpg'),
+                image: AssetImage('images/Nose_bleeding/step4.jpg'),
               ),
             ),
             SizedBox(
@@ -95,9 +91,8 @@ class CutsPage extends StatelessWidget {
               height: 10,
             ),
             Card(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
               child: Image(
-                image: AssetImage('images/Cuts/step5.jpg'),
+                image: AssetImage('images/Nose_bleeding/step5.jpg'),
               ),
             ),
             
