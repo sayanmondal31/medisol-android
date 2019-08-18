@@ -88,7 +88,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               colors: Colors.blue[200],
               onPress: () {
                 CircularProgressIndicator(backgroundColor: Colors.green,);
-                Navigator.pushNamed(context, Loginpage.id);
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginScreen()));
                 
               },
             ),

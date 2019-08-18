@@ -27,8 +27,8 @@ class MediSol extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
-      home: MediPage(),
-      initialRoute: MediPage.id,
+      home: WelcomeScreen(),
+      initialRoute: WelcomeScreen.id,
       routes: {
         MediPage.id: (context) => MediPage(),
         FirstaidPage.id: (context) => FirstaidPage(),
@@ -40,10 +40,10 @@ class MediSol extends StatelessWidget {
         EyesPage.id: (context) => EyesPage(),
         FeverPage.id: (context) => FeverPage(),
         StomachPage.id: (context) => StomachPage(),
-        Loginpage.id: (context) => Loginpage(),
+        // Loginpage.id: (context) => Loginpage(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         RegisterPage.id: (context) => RegisterPage(),
-        GoogleSignInpage.id: (context) => GoogleSignInpage(),
+        // GoogleSignInpage.id: (context) => GoogleSignInpage(),
       },
     );
   }
