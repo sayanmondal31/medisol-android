@@ -1,10 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:medisol/userDetail.dart';
 
-class DrawerBox extends StatelessWidget {
-  const DrawerBox({
-    Key key,
-  }) : super(key: key);
+class DrawerBox extends StatefulWidget {
+  
 
+  @override
+  _DrawerBoxState createState() => _DrawerBoxState();
+}
+
+class _DrawerBoxState extends State<DrawerBox> {
+  final _auth = FirebaseAuth.instance;
+  final _userDetail = Firestore.instance;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -14,7 +22,9 @@ class DrawerBox extends StatelessWidget {
             accountName: new Text(""),
             accountEmail: new Text(''),
             currentAccountPicture: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
+              },
               child: new CircleAvatar(
                 backgroundColor: Colors.cyan,
                 child: new Text(""),

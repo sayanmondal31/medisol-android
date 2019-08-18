@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:medisol/firstpage/page.dart';
 import 'package:medisol/login/goto_screen.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../constants.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -15,27 +14,72 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final _auth = FirebaseAuth.instance;
-  bool showSpinner =false;
+  final _store = Firestore.instance;
+  bool showSpinner = false;
   String email;
   String password;
+  String fname;
+  String lname;
+  String age;
+  String height;
+  String weight;
+  String blood;
+  String firstname;
+  String lastname;
+  String userage;
+  String userheight;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
-              child: Padding(
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+          child: ListView(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Hero(
-                tag: 'logo',
-                child: Container(
-                  height: 200.0,
-                  child: Image.asset('images/logo.png'),
-                ),
+              SizedBox(
+                height: 20,
+              ),
+              TextField(
+                keyboardType: TextInputType.text,
+                onChanged: (value) {
+                  fname = value;
+                },
+                decoration: kDecorationbox.copyWith(hintText: 'first name'),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              TextField(
+                keyboardType: TextInputType.text,
+                onChanged: (value) {
+                  lname = value;
+                },
+                decoration: kDecorationbox.copyWith(hintText: 'last name'),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              TextField(
+                keyboardType: TextInputType.number,
+                onChanged: (value) {
+                  age = value;
+                },
+                decoration: kDecorationbox.copyWith(hintText: 'age'),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              TextField(
+                keyboardType: TextInputType.number,
+                onChanged: (value) {
+                  height = value;
+                },
+                decoration: kDecorationbox.copyWith(hintText: 'height'),
               ),
               SizedBox(
                 height: 48.0,
@@ -54,7 +98,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   obscureText: true,
                   onChanged: (value) {
                     //Do something with the user input.
-                    password=value;
+                    password = value;
                   },
                   decoration:
                       kDecorationbox.copyWith(hintText: 'enter password')),
@@ -62,20 +106,27 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 24.0,
               ),
               GotoButton(
-                text: 'Refister',
+                text: 'Register',
                 onPress: () async {
                   setState(() {
-                    showSpinner =true;
+                    showSpinner = true;
                   });
                   try {
-                    final existingUser = await _auth.createUserWithEmailAndPassword(
-                        email: email, password: password);
+                    final existingUser =
+                        await _auth.createUserWithEmailAndPassword(
+                            email: email, password: password);
+                    
+                    await _store.collection('userdetails').add({
+                      'firstname': fname,
+                      'lastname': lname,
+                      'userage': age,
+                      'userheight': height,
+                    });
                     if (existingUser != null) {
                       Navigator.pushNamed(context, MediPage.id);
                       setState(() {
                         showSpinner = false;
                       });
-
                     }
                   } catch (e) {
                     print(e);
