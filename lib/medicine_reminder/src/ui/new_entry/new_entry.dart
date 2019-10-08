@@ -326,7 +326,7 @@ class _NewEntryState extends State<NewEntry> {
     }
     await Navigator.push(
       context,
-      new MaterialPageRoute(builder: (context) => HomePage()),
+      new MaterialPageRoute(builder: (context) => MediReminder()),
     );
   }
 

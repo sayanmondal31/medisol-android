@@ -41,6 +41,13 @@ class _RegisterPageState extends State<RegisterPage> {
             // mainAxisAlignment: MainAxisAlignment.center,
             // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
+               Center(child: Text('medisol',style: TextStyle(
+                fontWeight: FontWeight.w800,
+                fontSize: 100.0,
+                fontFamily: 'Angel',
+                color: Colors.cyan,
+                )
+              ),),
               SizedBox(
                 height: 20,
               ),

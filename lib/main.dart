@@ -8,10 +8,11 @@ import 'package:medisol/first_aid/fracture.dart';
 
 
 import 'package:medisol/firstpage/page.dart';
-import 'package:medisol/login/google_signin.dart';
+
 import 'package:medisol/login/login_page.dart';
 import 'package:medisol/login/register_page.dart';
 import 'package:medisol/login/signIn.dart';
+
 import 'package:medisol/login/welcome.dart';
 import 'package:medisol/symptoms/eyes.dart';
 import 'package:medisol/symptoms/fever.dart';
@@ -27,20 +28,20 @@ class MediSol extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.light(),
       debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
-      initialRoute: WelcomeScreen.id,
+      home: LoginScreen(),
+      initialRoute: LoginScreen.id,
       routes: {
         MediPage.id: (context) => MediPage(),
         FirstaidPage.id: (context) => FirstaidPage(),
         BurnPage.id: (context) => BurnPage(),
         CutsPage.id: (context) => CutsPage(),
         FracturePage.id: (context) => FracturePage(),
-        
+        LoginScreen.id: (context) =>LoginScreen(),
         SymptomsPage.id: (context) => SymptomsPage(),
         EyesPage.id: (context) => EyesPage(),
         FeverPage.id: (context) => FeverPage(),
         StomachPage.id: (context) => StomachPage(),
-        // Loginpage.id: (context) => Loginpage(),
+        // LoginPage.id: (context) => LoginPage(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         RegisterPage.id: (context) => RegisterPage(),
         // GoogleSignInpage.id: (context) => GoogleSignInpage(),

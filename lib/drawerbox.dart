@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:medisol/feedback.dart';
+import 'package:medisol/login/signIn.dart';
 import 'package:medisol/userDetail.dart';
 
 class DrawerBox extends StatefulWidget {
@@ -63,7 +65,7 @@ class _DrawerBoxState extends State<DrawerBox> {
             trailing: new Icon(Icons.feedback),
             onTap: () {
               
-              //  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new NotificationPage("notification")));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>FeedbackForm()));
             },
           ),
 
@@ -71,8 +73,8 @@ class _DrawerBoxState extends State<DrawerBox> {
           new ListTile(
               title: new Text("Log out "),
               trailing: new Icon(Icons.close),
-              onLongPress: () {
-                // prefix1.signOutGoogle();
+              onTap: () {
+                signOutGoogle();
                 
               }),
         ],

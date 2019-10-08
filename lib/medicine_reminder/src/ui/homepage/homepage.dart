@@ -7,12 +7,15 @@ import 'package:medisol/medicine_reminder/src/ui/medicine_details/medicine_detai
 import 'package:medisol/medicine_reminder/src/ui/new_entry/new_entry.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatefulWidget {
+class MediReminder extends StatefulWidget {
+  final ThemeData themeData;
+  final GlobalBloc globalBloc;
+  MediReminder({this.themeData,this.globalBloc});
   @override
-  _HomePageState createState() => _HomePageState();
+  _MediReminderState createState() => _MediReminderState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MediReminderState extends State<MediReminder> {
   GlobalBloc globalBloc;
 
   void initState() {

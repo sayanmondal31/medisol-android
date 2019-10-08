@@ -43,67 +43,59 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: animation.value,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return SafeArea(
+          child: Scaffold(
+          backgroundColor: Colors.grey,
+          body: Column(
+              // fit: StackFit.expand,
               children: <Widget>[
-                Hero(
-                  tag: 'logo',
-                  child: Container(
-                    child: Image.asset('images/logo.png'),
-                    height: 60,
+                
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage('images/blue-dna.gif'),
+                    ),
+                  ),
+                  child: Column(
+                    children: <Widget>[
+          Container(
+                  child: Column(
+                    children: <Widget>[
+          GotoButton(
+            text: 'Login',
+            colors: Colors.blue[200],
+            onPress: () {
+              CircularProgressIndicator(
+                backgroundColor: Colors.green,
+              );
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => LoginScreen()));
+            },
+          ),
+          GotoButton(
+            text: 'registration',
+            colors: Colors.purple,
+            onPress: () {
+              CircularProgressIndicator(
+                backgroundColor: Colors.green,
+              );
+              Navigator.pushNamed(context, RegisterPage.id);
+            },
+          )
+                    ],
                   ),
                 ),
-                Text(
-                  "We care your",
-                  style: TextStyle(fontSize: 43.0),
+                    ],
+                  ),
                 ),
-                SizedBox(width: 5.0, height: 10.0),
-                Padding(
-                  padding: const EdgeInsets.only(left: 200.0),
-                  child: RotateAnimatedTextKit(
-                      text: ["health", "family", "friends"],
-                      textStyle: TextStyle(
-                        fontSize: 40.0,
-                      ),
-                      textAlign: TextAlign.start,
-                      alignment:
-                          AlignmentDirectional.topStart // or Alignment.topLeft
-                      ),
-                ),
+                
               ],
-            ),
-            SizedBox(
-              height: 48.0,
-            ),
-            GotoButton(
-              text: 'Login',
-              colors: Colors.blue[200],
-              onPress: () {
-                CircularProgressIndicator(backgroundColor: Colors.green,);
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginScreen()));
-                
-              },
-            ),
-            GotoButton(
-              text: 'registration',
-              colors: Colors.purple,
-              onPress: () {
-                CircularProgressIndicator(backgroundColor: Colors.green,);
-                Navigator.pushNamed(context, RegisterPage.id);
-                
-              },
-            )
-          ],
-        ),
-      ),
+            )),
     );
   }
 }
