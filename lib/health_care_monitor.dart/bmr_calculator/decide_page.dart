@@ -1,6 +1,9 @@
 // import 'package:bmr_calculator/men/input_men.dart';
 // import 'package:bmr_calculator/women/input_women.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medisol/firstpage/ButtonUi.dart';
+import 'package:medisol/health_care_monitor.dart/bmi_calculator/reusable_card.dart';
 import 'package:medisol/health_care_monitor.dart/bmr_calculator/men/input_men.dart';
 import 'package:medisol/health_care_monitor.dart/bmr_calculator/women/input_women.dart';
 
@@ -12,47 +15,51 @@ class DecidePage extends StatefulWidget {
 class _DecidePageState extends State<DecidePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Card(
-            color: Colors.green,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60),
-              child: RaisedButton(
-                color: Colors.greenAccent,
-                elevation: 10,
-                highlightElevation: 20,
-                hoverElevation: 30,
-                padding: EdgeInsets.symmetric(horizontal: 80),
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => MenInput())),
-                child: Text('MEN'),
-              ),
+    return Scaffold(
+      body: SafeArea(
+              child: Container(
+          
+          child: Padding(
+            padding:  EdgeInsets.symmetric(vertical: 300.0,horizontal: 50.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                ButtonUi(
+                  text: 'Men',
+                  iconColor: Colors.blue,
+                  press: (){
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MenInput()));
+                  },
+                  iconData: FontAwesomeIcons.male,
+                ),
+                SizedBox(width: 10.0,),
+                ButtonUi(
+                  text: 'Women',
+                  iconColor: Colors.blue,
+                  press: (){
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WomenInput()));
+                  },
+                  iconData: FontAwesomeIcons.female,
+                ),
+                  
+                
+              ],
             ),
           ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Card(
-            color: Colors.pink[300],
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60),
-              child: RaisedButton(
-                color: Colors.pink[100],
-                elevation: 10,
-                highlightElevation: 20,
-                hoverElevation: 30,
-                padding: EdgeInsets.symmetric(horizontal: 80),
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => WomenInput())),
-                child: Text('WOMEN'),
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
+      
     );
   }
 }
+
+
+
+// onPressed: () => Navigator.push(context,
+//                     MaterialPageRoute(builder: (context) => WomenInput())),
+
+// onPressed: () => Navigator.push(context,
+//                     MaterialPageRoute(builder: (context) => MenInput())),

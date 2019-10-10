@@ -133,7 +133,7 @@ class _BmrCalPageMetricWomenState extends State<BmrCalPageMetricWomen> {
                   )
                 ],
               ),
-              colour: kcolorChange,
+              colour: Colors.brown,
             ),
           ),
           Expanded(
@@ -142,7 +142,7 @@ class _BmrCalPageMetricWomenState extends State<BmrCalPageMetricWomen> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    colour: kcolorChange,
+                    colour: Colors.brown,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -184,7 +184,7 @@ class _BmrCalPageMetricWomenState extends State<BmrCalPageMetricWomen> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colour: kcolorChange,
+                    colour: Colors.brown,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[

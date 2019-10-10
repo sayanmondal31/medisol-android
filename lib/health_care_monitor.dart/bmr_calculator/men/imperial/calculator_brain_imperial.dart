@@ -1,12 +1,12 @@
 import 'dart:math';
 
-class BmrCalculatorImperial {
+class CalorieCalculatorImperial {
   int height;
   int weight;
   int age;
   double _bmrimp;
 
-  BmrCalculatorImperial({this.height, this.weight, this.age});
+  CalorieCalculatorImperial({this.height, this.weight, this.age});
 
   double calculateImperial() {
     _bmrimp = 66.47 +

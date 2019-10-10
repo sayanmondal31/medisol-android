@@ -7,12 +7,12 @@ import 'package:medisol/health_care_monitor.dart/bmi_calculator/round_icon.dart'
 import 'package:medisol/health_care_monitor.dart/bmr_calculator/men/imperial/calculator_brain_imperial.dart';
 import 'package:medisol/health_care_monitor.dart/bmr_calculator/men/imperial/result_men_imperial.dart';
 
-class BmrCalPageImperial extends StatefulWidget {
+class CalorieCalPageImperial extends StatefulWidget {
   @override
-  _BmrCalPageImperialState createState() => _BmrCalPageImperialState();
+  _CalorieCalPageImperialState createState() => _CalorieCalPageImperialState();
 }
 
-class _BmrCalPageImperialState extends State<BmrCalPageImperial> {
+class _CalorieCalPageImperialState extends State<CalorieCalPageImperial> {
   // Gender selectedGender;
   int height = 180;
   int weight = 60;

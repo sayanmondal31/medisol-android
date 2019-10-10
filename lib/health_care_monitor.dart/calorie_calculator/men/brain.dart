@@ -4,13 +4,13 @@ class BmrCalculatorMetric {
   int height;
   int weight;
   int age;
-  double _bmr;
+  double _calorie;
 
   BmrCalculatorMetric({this.height, this.weight, this.age});
 
-  String calculateMetric() {
-    _bmr = 66.47 + (6.24 * weight) + (12.7 * height) - (6.755 * age);
-    return _bmr.toStringAsFixed(1);
+  String calculateMetricCalorie() {
+    _calorie = 66.47 + (13.75 * weight) + (5 * height) - (6.755 * age);
+    return _calorie.toStringAsFixed(1);
   }
 
   // String getResult() {

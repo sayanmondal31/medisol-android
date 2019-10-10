@@ -38,7 +38,7 @@ class ResultPageMetricwomen extends StatelessWidget {
           Expanded(
             flex: 5,
             child: ReusableCard(
-              colour: kcolorChange,
+              colour: Colors.brown,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
