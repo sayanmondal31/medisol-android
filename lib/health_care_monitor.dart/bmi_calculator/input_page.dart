@@ -49,7 +49,7 @@ class _BmiCalPageState extends State<BmiCalPage> {
                       text: "MALE",
                     ),
                     colour: selectedGender == Gender.male
-                        ? kcolorChange //for active Color
+                        ? Colors.blue.shade200 //for active Color
                         : kinactiveColor,
                   ),
                 ),
@@ -65,7 +65,7 @@ class _BmiCalPageState extends State<BmiCalPage> {
                       text: "FEMALE",
                     ),
                     colour: selectedGender == Gender.female
-                        ? kcolorChange
+                        ? Colors.blue.shade200
                         : kinactiveColor,
                   ),
                 ),
@@ -118,7 +118,7 @@ class _BmiCalPageState extends State<BmiCalPage> {
                   )
                 ],
               ),
-              colour: kcolorChange,
+              colour: Colors.blue.shade200
             ),
           ),
           Expanded(
@@ -127,7 +127,7 @@ class _BmiCalPageState extends State<BmiCalPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    colour: kcolorChange,
+                    colour: Colors.blue.shade200,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -169,7 +169,7 @@ class _BmiCalPageState extends State<BmiCalPage> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colour: kcolorChange,
+                    colour: Colors.blue.shade200,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[

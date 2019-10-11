@@ -8,6 +8,7 @@ import 'package:medisol/medicine_reminder/src/ui/new_entry/new_entry.dart';
 import 'package:provider/provider.dart';
 
 class MediReminder extends StatefulWidget {
+  static const String id = 'medrempage';
   final ThemeData themeData;
   final GlobalBloc globalBloc;
   MediReminder({this.themeData,this.globalBloc});

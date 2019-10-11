@@ -10,9 +10,9 @@ import 'package:modal_progress_hud/modal_progress_hud.dart';
 import '../constants.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key key, this.title, this.auth, this.onSignIn}) : super(key: key);
+  LoginScreen({Key key,  this.auth, this.onSignIn}) : super(key: key);
 
-  final String title;
+  // final String title;
   final BaseAuth auth;
   final VoidCallback onSignIn;
   static const String id = 'login';

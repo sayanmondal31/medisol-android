@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:medisol/feedback.dart';
+import 'package:medisol/firstpage/page.dart' as prefix0;
+import 'package:medisol/login/login_page.dart';
 import 'package:medisol/login/signIn.dart';
 import 'package:medisol/userDetail.dart';
 
@@ -13,8 +15,19 @@ class DrawerBox extends StatefulWidget {
 }
 
 class _DrawerBoxState extends State<DrawerBox> {
-  final _auth = FirebaseAuth.instance;
-  final _userDetail = Firestore.instance;
+   final FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseUser user;
+
+  @override
+  void initState() {
+    super.initState();
+    initUser();
+  }
+
+  initUser() async {
+    user = await _auth.currentUser();
+    setState(() {});
+  }
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -22,7 +35,7 @@ class _DrawerBoxState extends State<DrawerBox> {
         children: <Widget>[
           new UserAccountsDrawerHeader(
             accountName: new Text(""),
-            accountEmail: new Text(''),
+            accountEmail: new Text('${user?.email}',style: TextStyle(fontSize: 20.0,fontFamily: 'ic'),),
             currentAccountPicture: GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
@@ -74,7 +87,7 @@ class _DrawerBoxState extends State<DrawerBox> {
               title: new Text("Log out "),
               trailing: new Icon(Icons.close),
               onTap: () {
-                signOutGoogle();
+                
                 
               }),
         ],

@@ -35,6 +35,16 @@ class MediPage extends StatefulWidget {
   final VoidCallback onSignOut;
   static const String id = 'medihomepage';
   bool darkThemeEnabled;
+  void _signout(BuildContext context) {
+    try {
+      auth.signOut();
+      onSignOut();
+    } catch (e) {
+      throw 'error';
+    }
+  }
+
+  
 
   @override
   _MediPageState createState() => _MediPageState();
@@ -42,6 +52,7 @@ class MediPage extends StatefulWidget {
 
 class _MediPageState extends State<MediPage> {
   String name;
+  
   bool _visible = true;
 
   @override
@@ -57,6 +68,7 @@ class _MediPageState extends State<MediPage> {
       existingUser = user;
     }
   }
+  
 
   @override
   void setState(fn) {
@@ -83,6 +95,7 @@ class _MediPageState extends State<MediPage> {
               SizedBox(
                 width: 30.0,
               ),
+              
             ],
           ),
         ),
@@ -124,10 +137,11 @@ class _MediPageState extends State<MediPage> {
                 child: Row(
                   children: <Widget>[
                     ButtonUi(
-                        text: 'Deep Scan',
-                        iconColor: Colors.brown[400],
-                        iconData: FontAwesomeIcons.xRay,
-                        press: _launchURL, ),
+                      text: 'Deep Scan',
+                      iconColor: Colors.brown[400],
+                      iconData: FontAwesomeIcons.xRay,
+                      press: _launchURL,
+                    ),
                     ButtonUi(
                       text: 'Medicin reminder',
                       iconColor: Colors.green,

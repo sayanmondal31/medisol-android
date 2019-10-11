@@ -113,7 +113,7 @@ class MedicineDetails extends StatelessWidget {
                           _globalBloc.removeMedicine(medicine);
                           Navigator.popUntil(
                             context,
-                            ModalRoute.withName('/'),
+                            ModalRoute.withName('medrempage'),
                           );
                         },
                         child: InkWell(
