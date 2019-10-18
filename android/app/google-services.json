@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "118209624415",
+    "firebase_url": "https://medisol-dbc6b.firebaseio.com",
+    "project_id": "medisol-dbc6b",
+    "storage_bucket": "medisol-dbc6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118209624415:android:0545ef75dabf3833",
+        "android_client_info": {
+          "package_name": "com.example.medisol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118209624415-7q8u10vfiuq7qam2puibjremdmr1cj8v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medisol",
+            "certificate_hash": "64e74123ea2886da52f00ff927ad9daa8035417e"
+          }
+        },
+        {
+          "client_id": "118209624415-rg2857jp2ofs16orc32kn67r3ivn145o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnntX2YtspT_ZzIfmEwIFziUhzg94sxoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118209624415-rg2857jp2ofs16orc32kn67r3ivn145o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
