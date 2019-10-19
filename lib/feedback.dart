@@ -37,51 +37,47 @@ class FeedbackFormState extends State<FeedbackForm> {
             Image.asset('images/doctorlogo1.png'),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: TextFormField(
+              child: TextField(
                 decoration: InputDecoration(
                     focusColor: Colors.green,
                     hintText: 'Feedback',
                     hintStyle:
                         TextStyle(fontFamily: 'pacifico', fontSize: 20.0)),
-                onSaved: (value) {
+                onChanged: (value) {
                   userfeed = value;
-                },
-                onChanged: (value){
-                  userfeed = value;
-                },
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return 'Please Enter text';
-                  }
-                  return null;
                 },
                 cursorColor: Colors.green,
               ),
             ),
-            SizedBox(height: 20.0,),
+            SizedBox(
+              height: 20.0,
+            ),
             Padding(
-              padding: const EdgeInsets.only(left: 200,right: 50),
+              padding: const EdgeInsets.only(left: 200, right: 50),
               child: RaisedButton(
-                  onPressed: () async{
-                    
-                    _firestore.collection('feedback').add({
-                      'userneed':userfeed,
-                    });
-                     if (_formKey.currentState.validate()) {
-                      // If the form is valid, display a Snackbar.
-                      Scaffold.of(context)
-                          .showSnackBar(SnackBar(content: Text('Thank you')));
-                    }
-                    },
-                    child: Text('Submit',style: TextStyle(fontSize: 20.0,fontFamily: 'pacifico',letterSpacing: 2.0),),
-                    color: Colors.lime,
-                    ),
+                onPressed: () async {
+                  if(userfeed = null){
+                    Scaffold.of(context).showSnackBar(SnackBar(content: Text('data'),));
+                    return;
+                  }
+                  await _firestore.collection('feedback').add({
+                    'userneed': userfeed,
+                  });
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'Submit',
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      fontFamily: 'pacifico',
+                      letterSpacing: 2.0),
+                ),
+                color: Colors.lime,
+              ),
             )
-                  
           ],
         ),
       ),
     );
   }
 }
-

@@ -4,7 +4,11 @@ const ktextUi = TextStyle(
   fontSize: 20.0,
   color: Color(0xFF9999cf),
 );
-
+const ktextDonor = TextStyle(
+  fontSize: 20.0,
+  fontStyle: FontStyle.italic,
+  color: Colors.grey
+);
 const kDecorationbox = InputDecoration(
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
   border: OutlineInputBorder(

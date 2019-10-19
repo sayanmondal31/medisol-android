@@ -139,7 +139,7 @@ class MedicineDetails extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop();
+                          Navigator.pop(context,true);
                         },
                         child: InkWell(
                           child: Container(
