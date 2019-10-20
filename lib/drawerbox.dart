@@ -99,7 +99,8 @@ class _DrawerBoxState extends State<DrawerBox> {
           new ListTile(
               title: new Text("Log out "),
               trailing: new Icon(Icons.close),
-              onTap: () {}),
+              onTap: ()=>Navigator.popAndPushNamed(context, 'login')
+              ),
         ],
       ),
     );
