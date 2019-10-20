@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+// import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -37,13 +37,16 @@ class FeedbackFormState extends State<FeedbackForm> {
             Image.asset('images/doctorlogo1.png'),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: TextField(
+              child: TextFormField(
                 decoration: InputDecoration(
                     focusColor: Colors.green,
                     hintText: 'Feedback',
                     hintStyle:
                         TextStyle(fontFamily: 'pacifico', fontSize: 20.0)),
-                onChanged: (value) {
+                        onSaved: (String value){
+                          userfeed = value;
+                        },
+                onChanged: (String value) {
                   userfeed = value;
                 },
                 cursorColor: Colors.green,
@@ -56,10 +59,7 @@ class FeedbackFormState extends State<FeedbackForm> {
               padding: const EdgeInsets.only(left: 200, right: 50),
               child: RaisedButton(
                 onPressed: () async {
-                  if(userfeed = null){
-                    Scaffold.of(context).showSnackBar(SnackBar(content: Text('data'),));
-                    return;
-                  }
+                  
                   await _firestore.collection('feedback').add({
                     'userneed': userfeed,
                   });

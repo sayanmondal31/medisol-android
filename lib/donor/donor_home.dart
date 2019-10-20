@@ -42,6 +42,21 @@ class _DonorHomeState extends State<DonorHome> {
             tempSearchStore.add(element);
           });
         }
+        if (element['address'].startsWith(letterValue)) {
+          setState(() {
+            tempSearchStore.add(element);
+          });
+        }
+        if (element['gender'].startsWith(letterValue)) {
+          setState(() {
+            tempSearchStore.add(element);
+          });
+        }
+        if (element['mobile'].startsWith(letterValue)) {
+          setState(() {
+            tempSearchStore.add(element);
+          });
+        }
       });
     }
   }
@@ -99,7 +114,7 @@ class _DonorHomeState extends State<DonorHome> {
                       initiateSearch(val);
                     },
                     decoration: InputDecoration(
-                        hintText: 'search by name',
+                        hintText: 'search ',
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(4.0))),
                   ),
@@ -156,33 +171,3 @@ Widget buildResultCard(data) {
   );
 }
 
-// ListView(
-//               children: <Widget>[
-//                 TextField(
-//                   onChanged: (val) {
-//                     initiateSearch(val);
-//                   },
-//                   decoration: InputDecoration(
-//                       hintText: 'search by name',
-//                       border: OutlineInputBorder(
-//                           borderRadius: BorderRadius.circular(4.0))),
-//                 ),
-//                 // ListView(
-//                 //   children: tempSearchStore.map((element) {
-//                 //     return buildResultCard(element);
-//                 //   }).toList(),
-//                 // )
-
-//                 // GridView.count(
-//                 //   padding: EdgeInsets.only(left: 10.0,right: 10.0),
-//                 //   crossAxisCount: 2,
-//                 //   crossAxisSpacing: 4.0,
-//                 //   mainAxisSpacing: 4.0,
-//                 //   primary: false,
-//                 //   shrinkWrap: true,
-//                 //   children: tempSearchStore.map((element){
-//                 //     return buildResultCard(element);
-//                 //   }).toList()
-//                 // )
-//               ],
-//             ),
