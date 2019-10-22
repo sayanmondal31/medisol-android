@@ -12,11 +12,39 @@ class ProfilePage extends StatefulWidget {
   _ProfilePageState createState() => _ProfilePageState();
 }
 
+class FetchUserDetails{
+  userDetails(String name){
+    return Firestore.instance.collection('userdetails').where('firstname').getDocuments();
+  }
+}
+
 class _ProfilePageState extends State<ProfilePage> {
   final _auth = FirebaseAuth.instance;
   final _details = Firestore.instance;
+  FirebaseUser _user;
+  String _name;
+
 
   File _image;
+
+   @override
+  void initState() {
+    super.initState();
+    initUser();
+    initDetails();
+  }
+
+  initUser() async {
+    _user = await _auth.currentUser();
+    setState(() {});
+  }
+
+  initDetails()async{
+   
+    setState(() {
+       _name = FetchUserDetails().userDetails('firstname');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +142,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Align(
                             alignment: Alignment.centerLeft,
-                            child: Text('sayan mondal',
+                            child: Text('$_name',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20.0,
@@ -224,7 +252,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         style:
                             TextStyle(color: Colors.blueGrey, fontSize: 18.0)),
                     SizedBox(width: 20.0),
-                    Text('abc@gmail.com',
+                    Text('${_user?.email}',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20.0,
