@@ -34,7 +34,7 @@ class MapButtton extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => WebMap()));
               },
               iconData: FontAwesomeIcons.hospitalAlt,
-              problemText: "Hospital Near Me",
+              problemText: "Hospital",
             ),
             SizedBox(
               height: 20,
@@ -44,7 +44,7 @@ class MapButtton extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => WebMapAmbulance()));
               },
-              problemText: "Ambulance Near Me",
+              problemText: "Ambulance",
               iconData: FontAwesomeIcons.ambulance,
             ),
             SizedBox(
@@ -56,7 +56,7 @@ class MapButtton extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => WebMapDonor()));
               },
               iconData: FontAwesomeIcons.hands,
-              problemText: "Donor Near Me",
+              problemText: "Donor",
             )
           ],
         ),

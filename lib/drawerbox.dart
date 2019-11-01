@@ -89,13 +89,13 @@ class _DrawerBoxState extends State<DrawerBox> {
             },
           ),
 
-          ListTile(
-            title: Text('Donor'),
-            trailing: Icon(FontAwesomeIcons.tint),
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>DonorHome()));
-            },
-          ),
+          // ListTile(
+          //   title: Text('Donor'),
+          //   trailing: Icon(FontAwesomeIcons.tint),
+          //   onTap: (){
+          //     Navigator.push(context, MaterialPageRoute(builder: (context)=>DonorHome()));
+          //   },
+          // ),
           new ListTile(
               title: new Text("Log out "),
               trailing: new Icon(Icons.close),

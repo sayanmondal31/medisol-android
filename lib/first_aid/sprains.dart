@@ -18,7 +18,7 @@ class SprainPage extends StatelessWidget {
             Center(
               child: Text(
                 'Follow this steps,it will help you',
-                style: TextStyle(color: Colors.grey[200], fontSize: 38.0),
+                style: TextStyle(color: Colors.black, fontSize: 38.0),
                 textAlign: TextAlign.center,
               ),
             ),

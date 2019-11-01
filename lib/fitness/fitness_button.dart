@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ButtonUi extends StatelessWidget {
+class FitnessButton extends StatelessWidget {
   final Function press;
   final String text;
   final IconData iconData;
   final Color iconColor;
 
-  ButtonUi({@required this.press, @required this.text, this.iconData,@required this.iconColor});
+  FitnessButton({@required this.press, @required this.text, this.iconData,@required this.iconColor});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ButtonUi extends StatelessWidget {
           animationDuration: Duration(
             milliseconds: 1
           ),
-            color: Colors.white54,
+            color: Color(0xFF9297d3),
             
             elevation: 20.0,
             onPressed: press,

@@ -15,7 +15,7 @@ class _WebMapDonorState extends State<WebMapDonor> {
         title: Text('Donor near me'),
       ),
       
-      url: "https://www.google.co.in/maps/search/donor+near+me",
+      url: "https://tibproject.000webhostapp.com/",
       // withZoom: true,
     );
   }

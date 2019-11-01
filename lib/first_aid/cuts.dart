@@ -20,7 +20,7 @@ class CutsPage extends StatelessWidget {
             Center(
               child: Text(
                 'Follow this steps,it will help you',
-                style: TextStyle(color: Colors.grey, fontSize: 30.0),
+                style: TextStyle(color: Colors.black, fontSize: 30.0),
               ),
             ),
             SizedBox(
@@ -46,7 +46,7 @@ class CutsPage extends StatelessWidget {
             Card(
               clipBehavior: Clip.antiAliasWithSaveLayer,
               child: Image(
-                image: AssetImage('images/Cuts/step2.jpg'),
+                image: AssetImage('images/Cuts/step3.jpg'),
               ),
             ),
             SizedBox(
@@ -63,7 +63,7 @@ class CutsPage extends StatelessWidget {
             Card(
               clipBehavior: Clip.antiAliasWithSaveLayer,
               child: Image(
-                image: AssetImage('images/Cuts/step3.jpg'),
+                image: AssetImage('images/Cuts/step2.jpg'),
               ),
             ),
             SizedBox(

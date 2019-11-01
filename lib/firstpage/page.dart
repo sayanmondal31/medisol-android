@@ -11,6 +11,7 @@ import 'package:medisol/first_aid/first_aid_page/firstAid_page.dart';
 import 'package:medisol/firstpage/ButtonUi.dart';
 import 'package:medisol/firstpage/camera.dart';
 import 'package:medisol/firstpage/userinfo.dart' as prefix0;
+import 'package:medisol/fitness/fitness_page.dart';
 import 'package:medisol/health_care_monitor.dart/options_calculator.dart';
 import 'package:medisol/login/auth.dart';
 import 'package:medisol/login/signIn.dart' as prefix1;
@@ -175,7 +176,9 @@ class _MediPageState extends State<MediPage> {
                       text: 'Fitness',
                       iconColor: Colors.blue,
                       iconData: FontAwesomeIcons.userNurse,
-                      press: () {},
+                      press: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>FitnessPage()));
+                      },
                     )
                   ],
                 ),
@@ -184,6 +187,9 @@ class _MediPageState extends State<MediPage> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: RaisedButton(
+                animationDuration: Duration(
+                  seconds: 2
+                ),
                 splashColor: Colors.red,
                 color: Colors.red,
                 onPressed: () async {
