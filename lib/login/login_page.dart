@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Center(child: Text('medisol',style: TextStyle(
+              Center(child: Text('medic',style: TextStyle(
                 fontWeight: FontWeight.w800,
                 fontSize: 100.0,
                 fontFamily: 'Angel',
@@ -49,10 +49,10 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextFormField(
                   keyboardType: TextInputType.emailAddress,
-                  onChanged: (value) {
-                    //Do something with the user input.
-                    email = value;
-                  },
+                  // onChanged: (value) {
+                  //   //Do something with the user input.
+                  //   email = value;
+                  // },
                   validator: (value)=>value.isEmpty?'Email can\'t be empty' :null,
                   decoration: kDecorationbox.copyWith(hintText: 'enter email')),
               SizedBox(
@@ -60,10 +60,10 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextFormField(
                   obscureText: true,
-                  onChanged: (value) {
-                    //Do something with the user input.
-                    password = value;
-                  },
+                  // onChanged: (value) {
+                  //   //Do something with the user input.
+                  //   password = value;
+                  // },
                   
                   validator: (value)=>value.isEmpty?'password can\'t be empty':null,
                   autocorrect: false,

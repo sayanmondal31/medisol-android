@@ -46,9 +46,9 @@ class FeedbackFormState extends State<FeedbackForm> {
                 onSaved: (value) {
                   userfeed = value;
                 },
-                onChanged: (value){
-                  userfeed = value;
-                },
+                // onSaved: (value){
+                //   userfeed = value;
+                // },
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Please Enter text';
