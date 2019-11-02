@@ -14,9 +14,7 @@ import 'package:medisol/login/register_page.dart';
 import 'package:medisol/login/signIn.dart';
 
 import 'package:medisol/login/welcome.dart';
-import 'package:medisol/symptoms/eyes.dart';
-import 'package:medisol/symptoms/fever.dart';
-import 'package:medisol/symptoms/stomach_problem.dart';
+
 import 'package:medisol/symptoms/symptom_page/symptom_page.dart';
 
 void main() => runApp(MediSol());
@@ -38,9 +36,8 @@ class MediSol extends StatelessWidget {
         FracturePage.id: (context) => FracturePage(),
         LoginScreen.id: (context) =>LoginScreen(),
         SymptomsPage.id: (context) => SymptomsPage(),
-        EyesPage.id: (context) => EyesPage(),
-        FeverPage.id: (context) => FeverPage(),
-        StomachPage.id: (context) => StomachPage(),
+        
+        
         // LoginPage.id: (context) => LoginPage(),
         WelcomeScreen.id: (context) => WelcomeScreen(),
         RegisterPage.id: (context) => RegisterPage(),

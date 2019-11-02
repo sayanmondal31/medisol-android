@@ -71,14 +71,14 @@ class _DrawerBoxState extends State<DrawerBox> {
             },
           ),
           new Divider(),
-          new ListTile(
-            title: new Text("Notification"),
-            trailing: new Icon(Icons.notifications),
-            onTap: () {
-              Navigator.of(context).pop();
-              //  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new NotificationPage("notification")));
-            },
-          ),
+          // new ListTile(
+          //   title: new Text("Notification"),
+          //   trailing: new Icon(Icons.notifications),
+          //   onTap: () {
+          //     Navigator.of(context).pop();
+          //     //  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new NotificationPage("notification")));
+          //   },
+          // ),
 
           new ListTile(
             title: new Text("Feedback"),

@@ -6,13 +6,15 @@ import 'package:medisol/health_care_monitor.dart/bmi_calculator/reusable_card.da
 import 'package:medisol/health_care_monitor.dart/bmi_calculator/round_icon.dart';
 import 'package:medisol/health_care_monitor.dart/bmr_calculator/men/imperial/calculator_brain_imperial.dart';
 import 'package:medisol/health_care_monitor.dart/bmr_calculator/men/imperial/result_men_imperial.dart';
+import 'package:medisol/health_care_monitor.dart/calorie_calculator/men/brain.dart';
+import 'package:medisol/health_care_monitor.dart/calorie_calculator/men/calorie_result.dart';
 
-class CalorieCalPageImperial extends StatefulWidget {
+class CalorieCalPageMetric extends StatefulWidget {
   @override
-  _CalorieCalPageImperialState createState() => _CalorieCalPageImperialState();
+  _CalorieCalPageMetricState createState() => _CalorieCalPageMetricState();
 }
 
-class _CalorieCalPageImperialState extends State<CalorieCalPageImperial> {
+class _CalorieCalPageMetricState extends State<CalorieCalPageMetric> {
   // Gender selectedGender;
   int height = 180;
   int weight = 60;
@@ -105,7 +107,7 @@ class _CalorieCalPageImperialState extends State<CalorieCalPageImperial> {
                         height.toString(),
                         style: kheightWeightStyle,
                       ),
-                      Text('pounds', style: ktextUi),
+                      Text('cm', style: ktextUi),
                     ],
                   ),
                   SliderTheme(
@@ -230,13 +232,13 @@ class _CalorieCalPageImperialState extends State<CalorieCalPageImperial> {
           CalculateBMI(
             textb: "Calculate",
             onTap: () {
-              CalorieCalculatorImperial cali = CalorieCalculatorImperial(
+              CalorieCalculatorMetric cali = CalorieCalculatorMetric(
                   height: height, weight: weight, age: age);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => ResultPageImperial(
-                          bmrResultImperial: cali.calculateImperial(),
+                    builder: (context) => CalorieResultPageMetric(
+                          calorieResultMetric: cali.calculateMetricCalorie(),
                           // resultText: cal.getResult(),
                           // interpretation: cal.getInterpretation(),
                         )),

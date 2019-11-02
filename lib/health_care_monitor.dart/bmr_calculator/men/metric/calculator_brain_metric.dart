@@ -9,7 +9,7 @@ class BmrCalculatorMetric {
   BmrCalculatorMetric({this.height, this.weight, this.age});
 
   String calculateMetric() {
-    _bmr = 66.47 + (6.24 * weight) + (12.7 * height) - (6.755 * age);
+    _bmr = 66.47 + (13.7516 * weight) + (5.0033 * height) - (6.755 * age);
     return _bmr.toStringAsFixed(1);
   }
 

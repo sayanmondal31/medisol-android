@@ -4,6 +4,8 @@ import 'package:medisol/first_aid/first_aid_page/common_page_handle.dart';
 import 'package:medisol/firstpage/button_tab.dart';
 import 'package:medisol/health_care_monitor.dart/bmi_calculator/input_page.dart';
 import 'package:medisol/health_care_monitor.dart/bmr_calculator/decide_page.dart';
+import 'package:medisol/health_care_monitor.dart/calorie_calculator/men/brain.dart';
+import 'package:medisol/health_care_monitor.dart/calorie_calculator/men/men_input.dart';
 
 class ClaculatorTabs extends StatefulWidget {
   @override
@@ -51,17 +53,19 @@ class _ClaculatorTabsState extends State<ClaculatorTabs> {
             ),
             FirstaidComponents(
               problemText: 'Calorie Calculator',
-              press: (){},
+              press: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CalorieCalPageMetric()));
+              },
               iconData: Icons.camera_roll,
             ),
             SizedBox(
               width: 20,
             ),
-            FirstaidComponents(
-              problemText: 'Fat Calculator',
-              press: (){},
-              iconData: Icons.camera_roll,
-            )
+            // FirstaidComponents(
+            //   problemText: 'Fat Calculator',
+            //   press: (){},
+            //   iconData: Icons.camera_roll,
+            // )
           ],
         ),
       ),

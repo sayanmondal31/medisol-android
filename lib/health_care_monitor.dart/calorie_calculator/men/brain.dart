@@ -1,15 +1,17 @@
 import 'dart:math';
 
-class BmrCalculatorMetric {
+class CalorieCalculatorMetric {
   int height;
   int weight;
   int age;
   double _calorie;
+  double _bmr;
 
-  BmrCalculatorMetric({this.height, this.weight, this.age});
+  CalorieCalculatorMetric({this.height, this.weight, this.age});
 
   String calculateMetricCalorie() {
-    _calorie = 66.47 + (13.75 * weight) + (5 * height) - (6.755 * age);
+    _bmr = 66.47 + (13.7516 * weight) + (5.0033 * height) - (6.755 * age);
+    _calorie = _bmr*1.2;
     return _calorie.toStringAsFixed(1);
   }
 
