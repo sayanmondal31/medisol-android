@@ -3,6 +3,7 @@ import 'package:medisol/donor/button2donor.dart';
 import 'package:medisol/firstpage/ButtonUi.dart';
 import 'package:medisol/fitness/fitness_button.dart';
 import 'package:medisol/fitness/weight%20loose/plank.dart';
+import 'diseases.dart';
 
 class FitnessPage extends StatelessWidget {
   @override
@@ -27,7 +28,10 @@ class FitnessPage extends StatelessWidget {
                   text: 'Disease',
                   iconColor: Colors.teal,
                   iconData: Icons.ac_unit,
-                  press: () {},
+                  press: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => disease()));
+                  },
                 ),
                 SizedBox(
                   width: 20,
@@ -40,15 +44,18 @@ class FitnessPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20.0,),
-             Row(
+            SizedBox(
+              height: 20.0,
+            ),
+            Row(
               children: <Widget>[
                 FitnessButton(
                   text: 'Weight Loose',
                   iconColor: Colors.teal,
                   iconData: Icons.ac_unit,
                   press: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Plank()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Plank()));
                   },
                 ),
                 SizedBox(

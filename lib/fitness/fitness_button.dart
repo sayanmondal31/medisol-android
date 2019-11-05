@@ -12,6 +12,7 @@ class FitnessButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
+        
         padding: const EdgeInsets.all(15.0),
         child:  RaisedButton(
           animationDuration: Duration(

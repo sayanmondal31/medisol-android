@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextFormField(
                   keyboardType: TextInputType.emailAddress,
-                  onChanged: (value) {
+                  onSaved: (value) {
                     //Do something with the user input.
                     email = value;
                   },
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextFormField(
                   obscureText: true,
-                  onChanged: (value) {
+                  onSaved: (value) {
                     //Do something with the user input.
                     password = value;
                   },
