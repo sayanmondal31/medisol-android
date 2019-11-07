@@ -24,13 +24,15 @@ class ButtonUi extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                SizedBox(height: 40.0),
                 Icon(
                   iconData,
                   size: 50.0,
                   color: iconColor,
                 ),
                 SizedBox(height: 10.0,),
-                Text(text,style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,)
+                Text(text,style: TextStyle(fontSize: 20.0),textAlign: TextAlign.center,),
+                SizedBox(height: 60.0,)
               ],
             ),
           ),

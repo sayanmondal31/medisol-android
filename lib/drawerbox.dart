@@ -63,8 +63,8 @@ class _DrawerBoxState extends State<DrawerBox> {
           //  ),
 
           new ListTile(
-            title: new Text("Demo"),
-            trailing: new Icon(Icons.account_balance_wallet),
+            title: new Text("Home"),
+            trailing: new Icon(Icons.home),
             onTap: () {
               Navigator.of(context).pop();
               //  Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext contex)=>new BalancePage("balance")));
@@ -98,7 +98,7 @@ class _DrawerBoxState extends State<DrawerBox> {
           // ),
           new ListTile(
               title: new Text("Log out "),
-              trailing: new Icon(Icons.close),
+              
               onTap: ()=>Navigator.popAndPushNamed(context, 'login')
               ),
         ],

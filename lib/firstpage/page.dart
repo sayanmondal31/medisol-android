@@ -11,6 +11,7 @@ import 'package:medisol/first_aid/first_aid_page/firstAid_page.dart';
 import 'package:medisol/firstpage/ButtonUi.dart';
 import 'package:medisol/firstpage/camera.dart';
 import 'package:medisol/firstpage/userinfo.dart' as prefix0;
+import 'package:medisol/fitness/fitness_button.dart';
 import 'package:medisol/fitness/fitness_page.dart';
 import 'package:medisol/health_care_monitor.dart/options_calculator.dart';
 import 'package:medisol/login/auth.dart';
@@ -45,15 +46,13 @@ class MediPage extends StatefulWidget {
     }
   }
 
-  
-
   @override
   _MediPageState createState() => _MediPageState();
 }
 
 class _MediPageState extends State<MediPage> {
   String name;
-  
+
   bool _visible = true;
 
   @override
@@ -69,7 +68,6 @@ class _MediPageState extends State<MediPage> {
       existingUser = user;
     }
   }
-  
 
   @override
   void setState(fn) {
@@ -96,102 +94,90 @@ class _MediPageState extends State<MediPage> {
               SizedBox(
                 width: 30.0,
               ),
-              
             ],
           ),
         ),
       ),
       body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: ListView(
           children: <Widget>[
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    ButtonUi(
-                      text: 'First aid',
-                      iconColor: Colors.red[600],
-                      press: () {
-                        Navigator.pushNamed(context, FirstaidPage.id);
-                      },
-                      iconData: FontAwesomeIcons.firstAid,
-                    ),
-                    ButtonUi(
-                      text: 'Symptoms',
-                      iconColor: Colors.red[300],
-                      press: () => Navigator.pushNamed(
-                        context,
-                        SymptomsPage.id,
-                      ),
-                      iconData: FontAwesomeIcons.heartbeat,
-                    )
-                  ],
+            Row(
+              children: <Widget>[
+                ButtonUi(
+                  text: 'First aid',
+                  iconColor: Colors.red[600],
+                  press: () {
+                    Navigator.pushNamed(context, FirstaidPage.id);
+                  },
+                  iconData: FontAwesomeIcons.firstAid,
                 ),
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: <Widget>[
-                    ButtonUi(
-                      text: 'Deep Scan',
-                      iconColor: Colors.brown[400],
-                      iconData: FontAwesomeIcons.xRay,
-                      press: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>DeepScan()));
-                      },
-                    ),
-                    ButtonUi(
-                      text: 'Medicin reminder',
-                      iconColor: Colors.green,
-                      press: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => MedicineReminder()),
-                      ),
-                      iconData: FontAwesomeIcons.pills,
-                    )
-                  ],
+                SizedBox(
+                  width: 10.0,
                 ),
-              ),
+                ButtonUi(
+                  text: 'Symptoms',
+                  iconColor: Colors.red[300],
+                  press: () => Navigator.pushNamed(
+                    context,
+                    SymptomsPage.id,
+                  ),
+                  iconData: FontAwesomeIcons.heartbeat,
+                )
+              ],
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: <Widget>[
-                    ButtonUi(
-                      text: 'Health care Monitor',
-                      iconColor: Colors.green[600],
-                      iconData: FontAwesomeIcons.heartbeat,
-                      press: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ClaculatorTabs()),
-                      ),
-                    ),
-                    ButtonUi(
-                      text: 'Fitness',
-                      iconColor: Colors.blue,
-                      iconData: FontAwesomeIcons.userNurse,
-                      press: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>FitnessPage()));
-                      },
-                    )
-                  ],
+            SizedBox(
+              height: 5.0,
+            ),
+            Row(
+              children: <Widget>[
+                ButtonUi(
+                  text: 'Deep Scan',
+                  iconColor: Colors.brown[400],
+                  iconData: FontAwesomeIcons.xRay,
+                  press: () {
+                   _launchURL();
+                  },
                 ),
-              ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                ButtonUi(
+                  text: 'Medicin reminder',
+                  iconColor: Colors.green,
+                  press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MedicineReminder()),
+                  ),
+                  iconData: FontAwesomeIcons.pills,
+                )
+              ],
             ),
-            Padding(
+            Row(
+              children: <Widget>[
+                ButtonUi(
+                  text: 'Health care Monitor',
+                  iconColor: Colors.green[600],
+                  iconData: FontAwesomeIcons.heartbeat,
+                  press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ClaculatorTabs()),
+                  ),
+                ),
+                ButtonUi(
+                  text: 'Fitness',
+                  iconColor: Colors.blue,
+                  iconData: FontAwesomeIcons.userNurse,
+                  press: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => FitnessPage()));
+                  },
+                )
+              ],
+            ),
+             Padding(
               padding: const EdgeInsets.all(10.0),
               child: RaisedButton(
-                animationDuration: Duration(
-                  seconds: 2
-                ),
+                animationDuration: Duration(seconds: 2),
                 splashColor: Colors.red,
                 color: Colors.red,
                 onPressed: () async {
@@ -214,24 +200,28 @@ class _MediPageState extends State<MediPage> {
                 ),
               ),
             )
+      
           ],
         ),
+        
       ),
     );
   }
 }
 
-void signOutGoogle() async {
-  await googleSignIn.signOut();
 
-  print("User Sign Out");
-}
 
-// _launchURL() async {
-//   const url = 'http://104.197.213.77/checkup.html';
-//   if (await canLaunch(url)) {
-//     await launch(url);
-//   } else {
-//     throw 'Could not launch $url';
-//   }
+// void signOutGoogle() async {
+//   await googleSignIn.signOut();
+
+//   print("User Sign Out");
 // }
+
+_launchURL() async {
+  const url = 'http://35.193.225.166/checkup.html';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}

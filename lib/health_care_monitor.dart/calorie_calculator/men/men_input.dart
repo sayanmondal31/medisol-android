@@ -45,9 +45,10 @@ class _CalorieCalPageMetricState extends State<CalorieCalPageMetric> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.brown[300],
-      // appBar: AppBar(
-      //   title: Text('BMR calculator'),
-      // ),
+      appBar: AppBar(
+        backgroundColor: Colors.brown,
+        title: Center(child: Text('Calorie calculator')),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[

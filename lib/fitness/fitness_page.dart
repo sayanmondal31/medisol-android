@@ -32,9 +32,7 @@ class FitnessPage extends StatelessWidget {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Disease()));
                   },
                 ),
-                SizedBox(
-                  width: 50,
-                ),
+               
                
               ],
             ),
@@ -52,9 +50,7 @@ class FitnessPage extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => Plank()));
                   },
                 ),
-                SizedBox(
-                  width: 25,
-                ),
+                
                 // FitnessButton(
                 //   text: 'Stress',
                 //   iconColor: Colors.teal,

@@ -10,7 +10,7 @@ import 'package:modal_progress_hud/modal_progress_hud.dart';
 import '../constants.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key key,  this.auth, this.onSignIn}) : super(key: key);
+  LoginScreen({Key key, this.auth, this.onSignIn}) : super(key: key);
 
   // final String title;
   final BaseAuth auth;
@@ -33,17 +33,21 @@ class _LoginScreenState extends State<LoginScreen> {
         inAsyncCall: showSpinner,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+          child: ListView(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
+            
             children: <Widget>[
-              Center(child: Text('medisol',style: TextStyle(
-                fontWeight: FontWeight.w800,
-                fontSize: 100.0,
-                fontFamily: 'Angel',
-                color: Colors.cyan,
-                )
-              ),),
+              SizedBox(height: 150.0,),
+              Center(
+                child: Text('medisol',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 100.0,
+                      fontFamily: 'Angel',
+                      color: Colors.cyan,
+                    )),
+              ),
               SizedBox(
                 height: 48.0,
               ),
@@ -53,7 +57,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     //Do something with the user input.
                     email = value;
                   },
-                  validator: (value)=>value.isEmpty?'Email can\'t be empty' :null,
+                  validator: (value) =>
+                      value.isEmpty ? 'Email can\'t be empty' : null,
                   decoration: kDecorationbox.copyWith(hintText: 'enter email')),
               SizedBox(
                 height: 8.0,
@@ -64,8 +69,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     //Do something with the user input.
                     password = value;
                   },
-                  
-                  validator: (value)=>value.isEmpty?'password can\'t be empty':null,
+                  validator: (value) =>
+                      value.isEmpty ? 'password can\'t be empty' : null,
                   autocorrect: false,
                   decoration:
                       kDecorationbox.copyWith(hintText: 'enter password')),
@@ -98,21 +103,38 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     'New here ? ',
                     style: TextStyle(
-                      fontStyle: FontStyle.italic,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'ic'
+                        fontStyle: FontStyle.italic,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'ic'),
+                  ),
+                  Expanded(
+                    child: Material(
+                      elevation: 5.0,
+                      color: Colors.blueAccent,
+                      borderRadius: BorderRadius.circular(30.0),
+                      child: MaterialButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, RegisterPage.id);
+                        },
+                        minWidth: 200.0,
+                        height: 42.0,
+                        child: Text(
+                          'Register',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ),
-                  ),
-                  GotoButton(
-                    text: 'Register',
-                    colors: Colors.blueAccent,
-                    onPress: () {
-                      Navigator.pushNamed(context, RegisterPage.id);
-                    },
-                  ),
+                  )
                 ],
-              )
+              ),
+               GotoButton(
+                text: 'Guest',
+                onPress: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MediPage()));
+                },
+                colors: Colors.lightGreen,
+              ),
             ],
           ),
         ),
@@ -121,4 +143,10 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-
+// GotoButton(
+//                     text: 'Register',
+//                     colors: Colors.blueAccent,
+//                     onPress: () {
+//                       Navigator.pushNamed(context, RegisterPage.id);
+//                     },
+//                   )

@@ -58,12 +58,12 @@ class FeedbackFormState extends State<FeedbackForm> {
             Padding(
               padding: const EdgeInsets.only(left: 200, right: 50),
               child: RaisedButton(
-                onPressed: () async {
+                onPressed: ()  {
                   
-                  await _firestore.collection('feedback').add({
+                  _firestore.collection('feedback').add({
                     'userneed': userfeed,
                   });
-                  
+                  Navigator.pop(context);
                 },
                 child: Text(
                   'Submit',
