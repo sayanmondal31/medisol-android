@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:medisol/donor/button2donor.dart';
 import 'package:medisol/firstpage/ButtonUi.dart';
+import 'package:medisol/fitness/disease/disease_button.dart';
 import 'package:medisol/fitness/fitness_button.dart';
 import 'package:medisol/fitness/weight%20loose/plank.dart';
+import 'package:medisol/fitness/yoga/yoga_page.dart';
 
 class FitnessPage extends StatelessWidget {
   @override
@@ -16,8 +18,7 @@ class FitnessPage extends StatelessWidget {
       body: Container(
         child: ListView(
           children: <Widget>[
-            Image.network(
-                'https://i.pinimg.com/originals/64/41/61/644161b5ce15397473f2c4a49620ee8f.gif'),
+            Image.asset('images/fitness/yoga_front.gif'),
             SizedBox(
               height: 10.0,
             ),
@@ -27,41 +28,54 @@ class FitnessPage extends StatelessWidget {
                   text: 'Disease',
                   iconColor: Colors.teal,
                   iconData: Icons.ac_unit,
-                  press: () {},
+                  press: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Disease()));
+                  },
                 ),
                 SizedBox(
-                  width: 20,
+                  width: 50,
                 ),
-                FitnessButton(
-                  text: 'Body Fit',
-                  iconColor: Colors.teal,
-                  iconData: Icons.ac_unit,
-                  press: () {},
-                ),
+               
               ],
             ),
-            SizedBox(height: 20.0,),
-             Row(
+            SizedBox(
+              height: 5.0,
+            ),
+            Row(
               children: <Widget>[
                 FitnessButton(
                   text: 'Weight Loose',
                   iconColor: Colors.teal,
                   iconData: Icons.ac_unit,
                   press: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Plank()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Plank()));
                   },
                 ),
                 SizedBox(
-                  width: 20,
+                  width: 25,
                 ),
-                FitnessButton(
-                  text: 'Stress',
-                  iconColor: Colors.teal,
-                  iconData: Icons.ac_unit,
-                  press: () {},
-                ),
+                // FitnessButton(
+                //   text: 'Stress',
+                //   iconColor: Colors.teal,
+                //   iconData: Icons.ac_unit,
+                //   press: () {},
+                // ),
               ],
             ),
+            Row(
+              children: <Widget>[
+                FitnessButton(
+                  text: 'Y o g a',
+                  iconColor: Colors.teal,
+                  iconData: Icons.ac_unit,
+                  press: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => YogaPage()));
+                  },
+                ),
+              ],
+            )
           ],
         ),
       ),

@@ -1,43 +1,21 @@
-// import 'package:flutter/material.dart';
-// import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
-// void main() {
-//   runApp(Scaffold(
-//     body: Center(
-//       child: RaisedButton(
-//         onPressed: _launchURL,
-//         child: Text('Show Flutter homepage'),
-//       ),
-//     ),
-//   ));
-// }
+class DeepScan extends StatefulWidget {
+  @override
+  _DeepScanState createState() => _DeepScanState();
+}
 
-// _launchURL() async {
-//   const url = 'http://104.197.213.77/checkup.html';
-//   if (await canLaunch(url)) {
-//     await launch(url);
-//   } else {
-//     throw 'Could not launch $url';
-//   }
-// }
-
-
-// class MyApp extends StatefulWidget {
-//   @override
-//   _MyAppState createState() => _MyAppState();
-// }
-
-// class _MyAppState extends State<MyApp> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Colors.blueGrey,
-//         title: new Text("DSC_TIB"),
-//       ),
+class _DeepScanState extends State<DeepScan> {
+  @override
+  Widget build(BuildContext context) {
+    return WebviewScaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lightGreen,
+        title: Center(child: Text('Deep Scan')),
+      ),
+      url: 'https://suvhradipghosh07.github.io/android-https/',
       
-//       url: "https://developer-student-club-tib.github.io/web/",
-//       // withZoom: true,
-//     );
-//   }
-// }
+    );
+  }
+}

@@ -141,7 +141,9 @@ class _MediPageState extends State<MediPage> {
                       text: 'Deep Scan',
                       iconColor: Colors.brown[400],
                       iconData: FontAwesomeIcons.xRay,
-                      press: _launchURL,
+                      press: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>DeepScan()));
+                      },
                     ),
                     ButtonUi(
                       text: 'Medicin reminder',
@@ -225,11 +227,11 @@ void signOutGoogle() async {
   print("User Sign Out");
 }
 
-_launchURL() async {
-  const url = 'http://104.197.213.77/checkup.html';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
+// _launchURL() async {
+//   const url = 'http://104.197.213.77/checkup.html';
+//   if (await canLaunch(url)) {
+//     await launch(url);
+//   } else {
+//     throw 'Could not launch $url';
+//   }
+// }
