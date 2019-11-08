@@ -26,7 +26,7 @@ class MapButtton extends StatelessWidget {
         ),
       ),
       body: Container(
-        child: Column(
+        child: ListView(
           children: <Widget>[
             FirstaidComponents(
               press: () {

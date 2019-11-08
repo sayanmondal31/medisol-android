@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medisol/donor/button2donor.dart';
 import 'package:medisol/firstpage/ButtonUi.dart';
+import 'package:medisol/firstpage/page.dart';
 import 'package:medisol/fitness/disease/disease_button.dart';
 import 'package:medisol/fitness/fitness_button.dart';
 import 'package:medisol/fitness/weight%20loose/plank.dart';
@@ -10,6 +11,10 @@ class FitnessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFF7f84be),
+        onPressed: ()=>Navigator.popAndPushNamed(context, 'medihomepage'),
+      ),
       backgroundColor: Color(0xFF7f84be),
       appBar: AppBar(
         title: Center(child: Text('Fitness')),
