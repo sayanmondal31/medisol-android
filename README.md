@@ -1,6 +1,7 @@
 # medisol
+[![Codemagic build status](https://api.codemagic.io/apps/5da038339f20ef00142a677b/5da038339f20ef00142a677a/status_badge.svg)](https://codemagic.io/apps/5da038339f20ef00142a677b/5da038339f20ef00142a677a/latest_build)
 
-A new Flutter project.
+
 
 ## Getting Started
 
