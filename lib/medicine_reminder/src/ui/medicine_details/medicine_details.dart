@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:medisol/medicine_reminder/src/models/medicine.dart';
+import 'package:medisol/medicine_reminder/src/ui/homepage/homepage.dart';
 import 'package:provider/provider.dart';
 import '../../global_bloc.dart';
 
@@ -111,10 +112,7 @@ class MedicineDetails extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           _globalBloc.removeMedicine(medicine);
-                          Navigator.popUntil(
-                            context,
-                            ModalRoute.withName('medrempage'),
-                          );
+                          Navigator.pop(context);
                         },
                         child: InkWell(
                           child: Container(
