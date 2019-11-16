@@ -24,7 +24,8 @@ class GotoButton extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              color: Colors.white
+              color: Colors.white,
+              fontSize: 25
             ),
           ),
         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medisol/donor/donor_home.dart';
+import 'package:medisol/donor/eye_donate.dart';
 import 'package:medisol/drawerbox.dart';
 import 'package:medisol/emergency/map.dart';
 import 'package:medisol/emergency/web_ambulance.dart';
@@ -50,13 +52,30 @@ class MapButtton extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            FirstaidComponents(
-              press: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => WebMapDonor()));
-              },
-              iconData: FontAwesomeIcons.hands,
-              problemText: "Donor",
+            Row(
+              children: <Widget>[
+                Expanded(
+                                  child: FirstaidComponents(
+                    press: (){
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => WebMapDonor()));
+                    },
+                    iconData: FontAwesomeIcons.hands,
+                    problemText: "Donor",
+                  ),
+                ),
+                SizedBox(width: 20.0,),
+                Expanded(
+                                  child: FirstaidComponents(
+                    press: (){
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => EyeDonate()));
+                    },
+                    iconData: FontAwesomeIcons.hands,
+                    problemText: "Donor entry",
+                  ),
+                ),
+              ],
             )
           ],
         ),

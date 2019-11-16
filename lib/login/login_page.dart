@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF86abdb),
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: Padding(
@@ -38,15 +38,20 @@ class _LoginScreenState extends State<LoginScreen> {
             // crossAxisAlignment: CrossAxisAlignment.stretch,
             
             children: <Widget>[
-              SizedBox(height: 150.0,),
+              SizedBox(height: 90.0,),
               Center(
-                child: Text('medisol',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 100.0,
-                      fontFamily: 'Angel',
-                      color: Colors.cyan,
-                    )),
+                child: Column(
+                  children: <Widget>[
+                    Image.asset('images/dr1.jpeg'),
+                    // Text('medisol',
+                    //     style: TextStyle(
+                    //       fontWeight: FontWeight.w800,
+                    //       fontSize: 100.0,
+                    //       fontFamily: 'Angel',
+                    //       color: Colors.cyan,
+                    //     )),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 48.0,
@@ -78,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24.0,
               ),
               GotoButton(
-                text: 'Login',
+                text: ' Sign in',
                 onPress: () async {
                   setState(() {
                     showSpinner = true;
@@ -100,14 +105,14 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Row(
                 children: <Widget>[
-                  Text(
-                    'New here ? ',
-                    style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'ic'),
-                  ),
+                  // Text(
+                  //   'New here ? ',
+                  //   style: TextStyle(
+                  //       fontStyle: FontStyle.italic,
+                  //       fontSize: 20.0,
+                  //       fontWeight: FontWeight.bold,
+                  //       fontFamily: 'ic'),
+                  // ),
                   Expanded(
                     child: Material(
                       elevation: 5.0,
@@ -120,8 +125,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         minWidth: 200.0,
                         height: 42.0,
                         child: Text(
-                          'Register',
-                          style: TextStyle(color: Colors.white),
+                          'Sign up',
+                          style: TextStyle(color: Colors.white,fontSize: 19),
                         ),
                       ),
                     ),

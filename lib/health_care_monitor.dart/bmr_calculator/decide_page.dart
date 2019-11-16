@@ -16,41 +16,33 @@ class _DecidePageState extends State<DecidePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-              child: Container(
-          
-          child: Padding(
-            padding:  EdgeInsets.symmetric(vertical: 300.0,horizontal: 50.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                ButtonUi(
-                  text: 'Men',
-                  iconColor: Colors.blue,
-                  press: (){
-                    Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => MenInput()));
-                  },
-                  iconData: FontAwesomeIcons.male,
-                ),
-                SizedBox(width: 10.0,),
-                ButtonUi(
-                  text: 'Women',
-                  iconColor: Colors.blue,
-                  press: (){
-                    Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => WomenInput()));
-                  },
-                  iconData: FontAwesomeIcons.female,
-                ),
-                  
-                
-              ],
-            ),
-          ),
-        ),
-      ),
+      body: ListView(
+        
+        children: <Widget>[
+          SizedBox(height: 200.0,),
+          Row(
+            children: <Widget>[
+              ButtonUi(
+                press: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MenInput()));
+                },
+                text: 'Men',
+                iconColor: Colors.cyan,
+                iconData: FontAwesomeIcons.male,
+              ),
+              SizedBox(width: 10.0),
+              ButtonUi(
+                press: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>WomenInput()));
+                },
+                text: 'Women',
+                iconData: FontAwesomeIcons.female,
+                iconColor: Colors.cyan,
+              )
+            ],
+          )
+        ],
+      )
       
     );
   }

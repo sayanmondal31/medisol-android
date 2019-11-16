@@ -11,10 +11,7 @@ class FitnessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFF7f84be),
-        onPressed: ()=>Navigator.popAndPushNamed(context, 'medihomepage'),
-      ),
+      
       backgroundColor: Color(0xFF7f84be),
       appBar: AppBar(
         title: Center(child: Text('Fitness')),

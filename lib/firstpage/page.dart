@@ -142,7 +142,7 @@ class _MediPageState extends State<MediPage> {
                   width: 10.0,
                 ),
                 ButtonUi(
-                  text: 'Medicin reminder',
+                  text: 'Medicine Reminder',
                   iconColor: Colors.green,
                   press: () => Navigator.push(
                     context,
